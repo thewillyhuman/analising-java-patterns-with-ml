@@ -1,6 +1,8 @@
+.DS_Store
+
 # Avoid CSV and xslx files
 *.csv
-*.xslx
+*.xlsx
 
 
 # Byte-compiled / optimized / DLL files

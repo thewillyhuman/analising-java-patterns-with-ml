@@ -1,0 +1,3 @@
+type_def__percentage_overloaded_methods
+type_def__percentage_of_static_fields
+type_def__percentage_of_static_methods

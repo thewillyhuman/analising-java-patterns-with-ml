@@ -1,0 +1,3 @@
+SELECT *
+
+FROM het3;

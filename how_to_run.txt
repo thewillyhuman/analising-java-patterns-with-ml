@@ -1,0 +1,60 @@
+Para instalar las dependencias
+==============================
+sh requirements.sh
+
+
+Para entrenar nuevo
+===================
+python train_elnet.py --data-dir data/programs --model-dir experiments/programs/base_model
+
+python train_elnet.py --data-dir data/type_defs --model-dir experiments/type_defs/base_model
+
+python train_elnet.py --data-dir data/field_defs --model-dir experiments/field_defs/base_model
+
+python train_elnet.py --data-dir data/method_defs --model-dir experiments/method_defs/base_model
+
+python train_elnet.py --data-dir data/statements --model-dir experiments/statements/base_model
+
+python train_elnet.py --data-dir data/expressions --model-dir experiments/expressions/base_model
+
+python train_elnet.py --data-dir data/het1 --model-dir experiments/het1/base_model
+
+python train_elnet.py --data-dir data/het2 --model-dir experiments/het2/base_model
+
+
+
+Para entrenar
+=============
+python train_elnet.py --table-name programs --features-file-path het1/features.txt \
+                        --percentage-features-file-path het1/percentage_features.txt \
+                        --database-name patternminingV2 --query-file-path het1/query.sql  \
+                        --target-feature-name type_def__user_class
+
+python train_elnet.py --table-name programs --features-file-path het2/features.txt \
+                        --percentage-features-file-path het2/percentage_features.txt \
+                        --database-name patternminingV2 --query-file-path het2/query.sql  \
+                        --target-feature-name field_def__user_class
+
+python train_elnet.py --table-name programs --features-file-path het3/features.txt \
+                        --percentage-features-file-path het3/percentage_features.txt \
+                        --database-name patternminingV2 --query-file-path het3/query.sql  \
+                        --target-feature-name method_def__user_class
+
+python train_elnet.py --table-name programs --features-file-path het4/features.txt \
+                        --percentage-features-file-path het4/percentage_features.txt \
+                        --database-name patternminingV2 --query-file-path het4/query.sql  \
+                        --target-feature-name statements__user_class \
+                        --l1-step 0.2 \
+                        --C-n-values 5 \
+                        --C-min-exp -10 \
+                        --C-max-exp 10
+
+
+python train_elnet.py --table-name programs --features-file-path het5/features.txt \
+                        --percentage-features-file-path het5/percentage_features.txt \
+                        --database-name patternminingV2 --query-file-path het5/query.sql  \
+                        --target-feature-name expressions__user_class \
+                        --l1-step 0.2 \
+                        --C-n-values 5 \
+                        --C-min-exp -10 \
+                        --C-max-exp 10

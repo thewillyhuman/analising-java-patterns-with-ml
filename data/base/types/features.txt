@@ -1,0 +1,7 @@
+type__syntactic_category
+type__is_primitive
+type__height
+type__syntactic_category_parent_node
+type__role_played_in_parent_node
+type__number_of_generics
+type__number_of_dimensions

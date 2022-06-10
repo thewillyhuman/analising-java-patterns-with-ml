@@ -1,0 +1,10 @@
+field_def__visibility
+field_def__is_final
+field_def__is_static
+field_def__number_of_annotations
+field_def__naming_convention
+field_def__initial_value
+field_def__syntatic_category
+field_def__is_volatile
+field_def__is_transient
+field_def__syntactic_category_parent_node

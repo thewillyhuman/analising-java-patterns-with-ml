@@ -1,0 +1,6 @@
+programs__percentage_of_classes,
+programs__percentage_of_interfaces,
+programs__percentage_of_enums,
+type_def__percentage_overloaded_methods,
+type_def__percentage_of_static_fields,
+type_def__percentage_of_static_methods,
