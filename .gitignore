@@ -1,3 +1,8 @@
+# Avoid CSV and xslx files
+*.csv
+*.xslx
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
