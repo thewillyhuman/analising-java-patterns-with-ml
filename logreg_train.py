@@ -71,6 +71,11 @@ if __name__ == '__main__':
     params.precision = pre
     params.f1 = f1
 
+    # Store the model betas in the output file.
+    for coefs in elnet_model.coef_:
+        for (feature, coef) in zip(features, coefs):
+            exec(f"params.{feature} = {coef}")
+
     # Write parameters in json file
     json_path = os.path.join(args.model_dir, 'metrics_eval_best_weights.json')
     params.save(json_path)

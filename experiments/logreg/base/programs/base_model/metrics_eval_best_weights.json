@@ -1,8 +1,15 @@
 {
-    "C": 1.0,
-    "l1_ratio": 0.0,
-    "accuracy": 0.9709989258861439,
-    "recall": 0.0,
-    "precision": 0.0,
-    "f1": 0.0
+    "C": 100,
+    "l1_ratio": 0.01,
+    "accuracy": 0.9720730397422127,
+    "recall": 0.037037037037037035,
+    "precision": 1.0,
+    "f1": 0.07142857142857142,
+    "program__percentage_of_classes": -0.123118557035923,
+    "program__percentage_of_interfaces": -10.046825408935547,
+    "program__percentage_of_enums": 9.492546081542969,
+    "program__contains_code_in_packages": 4.400520324707031,
+    "program__contains_code_in_default_package": 1.259527564048767,
+    "program__percentage_of_types_in_packages": 0.8618630766868591,
+    "program__percentage_of_types_in_default_package": -3.6345157623291016
 }

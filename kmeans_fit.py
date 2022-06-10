@@ -2,6 +2,8 @@ import argparse
 import logging
 import os
 
+from sklearn.feature_selection import SelectKBest, mutual_info_regression
+
 from build_dataset import download_data, normalize_datatypes, scale_data_to_range_0_1
 from models.models import build_elastic_log_reg_model, train_and_evaluate_log_reg, save_log_reg_coefs_to_excel, \
     build_kmeans_model, fit_and_evaluate_kmeans, search_kmeans_elbow
@@ -12,6 +14,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--data-dir', type=str, required=True, help="Directory containing query and features")
 parser.add_argument('--model-dir', type=str, required=True, help="Directory containing params.json")
 parser.add_argument('--compute-elbow', action='store_true', help="Whether to compute the number of clusters or not")
+parser.add_argument('--max-n-features', type=int, default=-1,
+                    help="Máximum number of features to select. If present will use feature selection.")
 parser.add_argument('--database-name', type=str, default='patternminingV2')
 
 
@@ -57,6 +61,13 @@ if __name__ == '__main__':
     x = scale_data_to_range_0_1(x, features, percentage_features)
     logging.info("Features scaled. Features shape {}. Target shape {}.".format(x.shape, y.shape))
 
+    if args.max_n_features != -1:
+        selector = SelectKBest(mutual_info_regression, k=args.max_n_features)
+        selector.fit(x, y)
+        print(x.columns[selector.get_support()].values.tolist())
+        x = x[x.columns[selector.get_support()].values.tolist()]
+        features = x.columns.values.tolist()
+
     if args.compute_elbow:
         # Find best number of clusters (elbow)
         number_of_clusters = search_kmeans_elbow(x, 2, 15)
@@ -83,17 +94,23 @@ if __name__ == '__main__':
     params.save(json_path)
     logging.info("Data saved.")
 
+    row_index = 0
     for row in model.cluster_centers_:
         cluster_rule = "["
-        column_index = 0;
+        column_index = 0
         for column in row:
             cluster_rule = cluster_rule + f"{features[column_index]}={column:.8f}"
             if column_index != len(row) - 1:
                 cluster_rule = cluster_rule + " ∧ "
             column_index = column_index + 1
         cluster_rule = cluster_rule + "]"
-        logging.info(cluster_rule)
 
-    #logging.info(tabulate(model.cluster_centers_, headers=features, tablefmt='psql'))
+        logging.info("")
+        logging.info("")
+        logging.info(f"Centroids: {cluster_rule}.")
+        logging.info(f"Support: {metrics_df['Support'].iloc[row_index]:.2f}%.")
+        logging.info(f"Distribution: {metrics_df['Low'].iloc[row_index]:.2f}% (low), {metrics_df['High'].iloc[row_index]:.2f}% (high).")
+        row_index = row_index + 1
 
+    logging.info("")
     logging.info("All saved and finished.")

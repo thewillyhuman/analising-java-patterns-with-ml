@@ -53,3 +53,17 @@ python logreg_train.py --data-dir data/unique/het2 --model-dir experiments/logre
 python logreg_train.py --data-dir data/unique/het3 --model-dir experiments/logreg/unique/het3/base_model --database-name patternminingV2;
 python logreg_train.py --data-dir data/unique/het4 --model-dir experiments/logreg/unique/het4/base_model --database-name patternminingV2;
 python logreg_train.py --data-dir data/unique/het5 --model-dir experiments/logreg/unique/het5/base_model --database-name patternminingV2;
+
+# Run all kmeans with full tables
+python kmeans_fit.py --data-dir data/base/programs --model-dir experiments/kmeans/base/programs/best_model --compute-elbow --database-name patternmining;
+python kmeans_fit.py --data-dir data/base/type_defs --model-dir experiments/kmeans/base/type_defs/best_model --compute-elbow --database-name patternmining;
+python kmeans_fit.py --data-dir data/base/field_defs --model-dir experiments/kmeans/base/field_defs/best_model --compute-elbow --database-name patternmining;
+python kmeans_fit.py --data-dir data/base/method_defs --model-dir experiments/kmeans/base/method_defs/best_model --compute-elbow --database-name patternmining;
+python kmeans_fit.py --data-dir data/base/types --model-dir experiments/kmeans/base/types/best_model --compute-elbow --database-name patternmining;
+python kmeans_fit.py --data-dir data/base/expressions --model-dir experiments/kmeans/base/expressions/best_model --compute-elbow --database-name patternmining;
+python kmeans_fit.py --data-dir data/base/statements --model-dir experiments/kmeans/base/statements/best_model --compute-elbow --database-name patternmining;
+python kmeans_fit.py --data-dir data/base/het1 --model-dir experiments/kmeans/base/het1/best_model --compute-elbow --database-name patternmining;
+python kmeans_fit.py --data-dir data/base/het2 --model-dir experiments/kmeans/base/het2/best_model --compute-elbow --database-name patternmining;
+python kmeans_fit.py --data-dir data/base/het3 --model-dir experiments/kmeans/base/het3/best_model --compute-elbow --database-name patternmining;
+python kmeans_fit.py --data-dir data/base/het4 --model-dir experiments/kmeans/base/het4/best_model --compute-elbow --database-name patternmining;
+python kmeans_fit.py --data-dir data/base/het5 --model-dir experiments/kmeans/base/het5/best_model --compute-elbow --database-name patternmining;
