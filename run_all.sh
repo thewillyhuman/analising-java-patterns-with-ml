@@ -1,30 +1,30 @@
 # Download full tables.
-python build_dataset.py --database-name patternmining --data-dir data/base/programs --out-file-name programs_full.csv;
-python build_dataset.py --database-name patternmining --data-dir data/base/type_defs --out-file-name type_defs_full.csv;
-python build_dataset.py --database-name patternmining --data-dir data/base/field_defs --out-file-name field_defs_full.csv;
-python build_dataset.py --database-name patternmining --data-dir data/base/method_defs --out-file-name method_defs_full.csv;
-python build_dataset.py --database-name patternmining --data-dir data/base/types --out-file-name types_full.csv;
-python build_dataset.py --database-name patternmining --data-dir data/base/statements --out-file-name statements_full.csv;
-python build_dataset.py --database-name patternmining --data-dir data/base/expressions --out-file-name expressions_full.csv;
-python build_dataset.py --database-name patternmining --data-dir data/base/het1 --out-file-name het1_full.csv;
-python build_dataset.py --database-name patternmining --data-dir data/base/het2 --out-file-name het2_full.csv;
-python build_dataset.py --database-name patternmining --data-dir data/base/het3 --out-file-name het3_full.csv;
-python build_dataset.py --database-name patternmining --data-dir data/base/het4 --out-file-name het4_full.csv;
-python build_dataset.py --database-name patternmining --data-dir data/base/het5 --out-file-name het5_full.csv;
+python build_dataset.py --database-name patternmining --data-dir data/base/programs;
+python build_dataset.py --database-name patternmining --data-dir data/base/type_defs;
+python build_dataset.py --database-name patternmining --data-dir data/base/field_defs;
+python build_dataset.py --database-name patternmining --data-dir data/base/method_defs;
+python build_dataset.py --database-name patternmining --data-dir data/base/types;
+python build_dataset.py --database-name patternmining --data-dir data/base/statements;
+python build_dataset.py --database-name patternmining --data-dir data/base/expressions;
+python build_dataset.py --database-name patternmining --data-dir data/base/het1;
+python build_dataset.py --database-name patternmining --data-dir data/base/het2;
+python build_dataset.py --database-name patternmining --data-dir data/base/het3;
+python build_dataset.py --database-name patternmining --data-dir data/base/het4;
+python build_dataset.py --database-name patternmining --data-dir data/base/het5;
 
 # Download unique tables.
-python build_dataset.py --database-name patternminingV2 --data-dir data/unique/programs --out-file-name programs_unique.csv;
-python build_dataset.py --database-name patternminingV2 --data-dir data/unique/type_defs --out-file-name type_defs_unique.csv;
-python build_dataset.py --database-name patternminingV2 --data-dir data/unique/field_defs --out-file-name field_defs_unique.csv;
-python build_dataset.py --database-name patternminingV2 --data-dir data/unique/method_defs --out-file-name method_defs_unique.csv;
-python build_dataset.py --database-name patternminingV2 --data-dir data/unique/types --out-file-name types_unique.csv;
-python build_dataset.py --database-name patternminingV2 --data-dir data/unique/statements --out-file-name statements_unique.csv;
-python build_dataset.py --database-name patternminingV2 --data-dir data/unique/expressions --out-file-name expressions_unique.csv;
-python build_dataset.py --database-name patternminingV2 --data-dir data/unique/het1 --out-file-name het1_unique.csv;
-python build_dataset.py --database-name patternminingV2 --data-dir data/unique/het2 --out-file-name het2_unique.csv;
-python build_dataset.py --database-name patternminingV2 --data-dir data/unique/het3 --out-file-name het3_unique.csv;
-python build_dataset.py --database-name patternminingV2 --data-dir data/unique/het4 --out-file-name het4_unique.csv;
-python build_dataset.py --database-name patternminingV2 --data-dir data/unique/het5 --out-file-name het5_unique.csv;
+python build_dataset.py --database-name patternminingV2 --data-dir data/unique/programs;
+python build_dataset.py --database-name patternminingV2 --data-dir data/unique/type_defs;
+python build_dataset.py --database-name patternminingV2 --data-dir data/unique/field_defs;
+python build_dataset.py --database-name patternminingV2 --data-dir data/unique/method_defs;
+python build_dataset.py --database-name patternminingV2 --data-dir data/unique/types;
+python build_dataset.py --database-name patternminingV2 --data-dir data/unique/statements;
+python build_dataset.py --database-name patternminingV2 --data-dir data/unique/expressions;
+python build_dataset.py --database-name patternminingV2 --data-dir data/unique/het1;
+python build_dataset.py --database-name patternminingV2 --data-dir data/unique/het2;
+python build_dataset.py --database-name patternminingV2 --data-dir data/unique/het3;
+python build_dataset.py --database-name patternminingV2 --data-dir data/unique/het4;
+python build_dataset.py --database-name patternminingV2 --data-dir data/unique/het5;
 
 # Run all log regs with full tables
 python logreg_train.py --data-dir data/base/programs --model-dir experiments/logreg/base/programs/base_model --database-name patternmining;

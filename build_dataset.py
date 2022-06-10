@@ -4,12 +4,10 @@ import argparse
 import logging
 import os
 
-from models.utils import set_logger, select_features
+from models.utils import set_logger
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--data-dir', type=str, required=True, help="Directory containing query and features")
-parser.add_argument('--database-name', type=str, default='patternminingV2')
-parser.add_argument('--out-file-name', type=str, required=True)
+parser.add_argument('--data-dir', type=str, required=True, help="Base data directory.")
 
 DATABASE_IP = '156.35.94.139'
 DATABASE_PORT = '5432'
@@ -18,7 +16,6 @@ DATABASE_PASSWORD = 'postgres'
 
 
 def download_data(query: str, database_name: str, features: [str], target: str) -> (pd.DataFrame, pd.Series):
-
     # Connect to the database.
     db_conn_str = f"postgresql://{DATABASE_USERNAME}:{DATABASE_PASSWORD}@{DATABASE_IP}:{DATABASE_PORT}/{database_name}"
     db_conn = sqlalchemy.create_engine(db_conn_str)
@@ -31,7 +28,7 @@ def download_data(query: str, database_name: str, features: [str], target: str) 
 def normalize_datatypes(x: pd.DataFrame, y: pd.Series) -> (pd.DataFrame, pd.Series, [str]):
     x = pd.get_dummies(x)
     x = x.astype('float32')
-    y = y.apply(lambda value: 0 if value == "low" else 1) # high will be 1 and low will be 0.
+    y = y.apply(lambda value: 0 if value == "low" else 1)  # high will be 1 and low will be 0.
     y = y.astype('float32')
     x = x.fillna(0.0)
     columns_names = x.columns.tolist()
@@ -48,39 +45,62 @@ def scale_data_to_range_0_1(x: pd.DataFrame, feature_names: [str], percentage_fe
     return x
 
 
-if __name__ == '__main__':
-    # Load the data for the experiment
-    args = parser.parse_args()
-    query_path = os.path.join(args.data_dir, 'query.sql')
-    features_path = os.path.join(args.data_dir, 'features.txt')
-    target_path = os.path.join(args.data_dir, 'target.txt')
+def build_dataset(database_name: str, data_dir: str) -> None:
+    # Load paths from data directory.
+    query_path = os.path.join(data_dir, 'query.sql')
+    features_path = os.path.join(data_dir, 'features.txt')
+    target_path = os.path.join(data_dir, 'target.txt')
 
-    assert os.path.isfile(query_path), "No json configuration file found at {}".format(query_path)
-    assert os.path.isfile(features_path), "No json configuration file found at {}".format(features_path)
+    # Ensure paths exists.
+    assert os.path.isfile(query_path), f"No json configuration file found at {query_path}"
+    assert os.path.isfile(features_path), f"No json configuration file found at {features_path}"
+    assert os.path.isfile(target_path), f"No json configuration file found at {target_path}"
 
-    # Set the logger
-    set_logger(os.path.join(args.data_dir, 'build_dataset.log'))
-
-    # Load the dataset
-    logging.info("Downloading dataset...")
+    # Download the dataset from the given database.
+    logging.info(f"Downloading dataset [{data_dir}]...")
     query = open(query_path, mode='r').read()
     features = [feature.rstrip() for feature in open(features_path, mode='r').readlines()]
     target = open(target_path, mode='r').read()
-    x, y = download_data(query=query, database_name=args.database_name, features=features, target=target)
-    logging.info("Downloaded dataset. Features shape {}. Target shape {}.".format(x.shape, y.shape))
+    x, y = download_data(query=query, database_name=database_name, features=features, target=target)
+    logging.info(f"Dataset downloaded. Features shape {x.shape}. Target shape {y.shape}.")
 
     # OneHot encoding
+    logging.info(f"Applying OneHot encoder...")
     x, y, features = normalize_datatypes(x, y)
-    logging.info("Features normalized. Features shape {}. Target shape {}.".format(x.shape, y.shape))
+    y = [0 if value == 'low' else 1 for value in y]  # low = 0, high = 1.
+    logging.info(f"Shapes after OneHot encoding: features {x.shape}, target {len(y)}.")
 
-    # Apply feature selection if needed.
-    if len(features) > 40:
-        logging.info(f"The dataset contains more than 40 features ({len(features)}), we will apply feature selection")
-        selected_features = select_features(x,y)
-        x = x[selected_features]
-
+    logging.info("Saving dataset to a single csv.")
     x['user_class'] = y
-    out_file_path = os.path.join(args.data_dir, args.out_file_name)
+    out_file_path = os.path.join(data_dir, 'dataset_and_target.csv')
     x.to_csv(out_file_path, index=False)
-    logging.info("Finished.")
+    logging.info("Dataset saved.")
 
+
+if __name__ == '__main__':
+    # Load the data for the experiment
+    args = parser.parse_args()
+
+    # Check for data dir.
+    assert os.path.isdir(args.data_dir), f"No data dir for data at {args.data_dir}."
+
+    # Create and check that base and unique data dirs exist.
+    base_data_dir = os.path.join(args.data_dir, 'base')
+    unique_data_dir = os.path.join(args.data_dir, 'unique')
+    assert os.path.isdir(base_data_dir), f"No base dir for data at {base_data_dir}."
+    assert os.path.isdir(unique_data_dir), f"No unique dir for data at {unique_data_dir}."
+
+    # Set the logger at data_dir
+    set_logger(os.path.join(args.data_dir, 'build_dataset.log'))
+
+    for subdir in os.listdir(base_data_dir):
+        subdir = os.path.join(base_data_dir, subdir)
+        expected_data_dir = os.path.join(subdir, 'data_and_target.csv')
+        if not os.path.isfile(expected_data_dir):  # Build only if dataset has not been downloaded previously.
+            build_dataset('patternmining', subdir)
+
+    for subdir in os.listdir(unique_data_dir):
+        subdir = os.path.join(unique_data_dir, subdir)
+        expected_data_dir = os.path.join(subdir, 'data_and_target.csv')
+        if not os.path.isfile(expected_data_dir):  # Build only if dataset has not been downloaded previously.
+            build_dataset('patternminingV2', subdir)
