@@ -5,6 +5,6 @@ SELECT type_category as type__syntactic_category,
        parentchild as type__role_played_in_parent_node,
        generics as type__number_of_generics,
        dimensions as type__number_of_dimensions,
-       user_class as type___user_class
+       user_class as type__user_class
 
 FROM type
