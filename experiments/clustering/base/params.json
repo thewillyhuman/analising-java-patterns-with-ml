@@ -1,0 +1,12 @@
+{
+  "kmeans": {
+    "min_n_clusters": 2,
+    "max_n_clusters": 7
+  },
+  "db_scan":{
+    "eps": [1.5, 2, 4, 6]
+  },
+  "optics": {
+    "min_samples": [0.01, 0.02, 0.03, 0.04, 0.05]
+  }
+}

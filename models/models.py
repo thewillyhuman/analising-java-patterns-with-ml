@@ -1,6 +1,7 @@
 import logging
 
 import pandas as pd
+import sklearn.cluster
 from sklearn.cluster import KMeans
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split

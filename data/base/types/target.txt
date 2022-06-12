@@ -1,1 +1,1 @@
-type___user_class
+type__user_class

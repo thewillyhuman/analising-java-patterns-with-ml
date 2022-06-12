@@ -15,6 +15,27 @@ DATABASE_USERNAME = 'postgres'
 DATABASE_PASSWORD = 'postgres'
 
 
+def load_dataset_from_csv(data_dir: str) -> (pd.DataFrame, pd.Series, [str], str):
+    dataset_path = os.path.join(data_dir, 'dataset_and_target.csv')
+    features_path = os.path.join(data_dir, 'features.txt')
+    percentage_features_path = os.path.join(data_dir, 'percentage_features.txt')
+    target_path = os.path.join(data_dir, 'target.txt')
+
+    assert os.path.isfile(dataset_path), f"No dataset fount at {dataset_path}"
+    assert os.path.isfile(features_path), f"No features found at {features_path}"
+    assert os.path.isfile(percentage_features_path), f"No percentage features found at {percentage_features_path}"
+    assert os.path.isfile(target_path), f"No target found at {target_path}"
+
+    features = [feature.rstrip() for feature in open(features_path, mode='r').readlines()]
+    percentage_features = [feature.rstrip() for feature in open(percentage_features_path, mode='r').readlines()]
+    target = open(target_path, mode='r').read()
+
+    full_table = pd.read_csv(dataset_path)
+    return full_table[features], full_table['user_class'], features, percentage_features, target
+
+
+
+
 def download_data(query: str, database_name: str, features: [str], target: str) -> (pd.DataFrame, pd.Series):
     # Connect to the database.
     db_conn_str = f"postgresql://{DATABASE_USERNAME}:{DATABASE_PASSWORD}@{DATABASE_IP}:{DATABASE_PORT}/{database_name}"
@@ -65,10 +86,10 @@ def build_dataset(database_name: str, data_dir: str) -> None:
     logging.info(f"Dataset downloaded. Features shape {x.shape}. Target shape {y.shape}.")
 
     # OneHot encoding
-    logging.info(f"Applying OneHot encoder...")
-    x, y, features = normalize_datatypes(x, y)
-    y = [0 if value == 'low' else 1 for value in y]  # low = 0, high = 1.
-    logging.info(f"Shapes after OneHot encoding: features {x.shape}, target {len(y)}.")
+    #logging.info(f"Applying OneHot encoder...")
+    #x, y, features = normalize_datatypes(x, y)
+    #y = [0 if value == 'low' else 1 for value in y]  # low = 0, high = 1.
+    #logging.info(f"Shapes after OneHot encoding: features {x.shape}, target {len(y)}.")
 
     logging.info("Saving dataset to a single csv.")
     x['user_class'] = y
@@ -96,11 +117,9 @@ if __name__ == '__main__':
     for subdir in os.listdir(base_data_dir):
         subdir = os.path.join(base_data_dir, subdir)
         expected_data_dir = os.path.join(subdir, 'data_and_target.csv')
-        if not os.path.isfile(expected_data_dir):  # Build only if dataset has not been downloaded previously.
-            build_dataset('patternmining', subdir)
+        build_dataset('patternmining', subdir)
 
     for subdir in os.listdir(unique_data_dir):
         subdir = os.path.join(unique_data_dir, subdir)
         expected_data_dir = os.path.join(subdir, 'data_and_target.csv')
-        if not os.path.isfile(expected_data_dir):  # Build only if dataset has not been downloaded previously.
-            build_dataset('patternminingV2', subdir)
+        build_dataset('patternminingV2', subdir)

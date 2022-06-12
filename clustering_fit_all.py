@@ -29,7 +29,7 @@ def launch_training_job(parent_dir, data_dir, job_name, params):
     params.save(json_path)
 
     # Launch training with this config
-    cmd = "{python} kmeans_fit.py --model-dir {model_dir} --data-dir {data_dir}".format(python=PYTHON,
+    cmd = "{python} clustering_fit.py --model-dir {model_dir} --data-dir {data_dir}".format(python=PYTHON,
             model_dir=model_dir, data_dir=data_dir)
     print(cmd)
     check_call(cmd, shell=True)
@@ -38,17 +38,20 @@ def launch_training_job(parent_dir, data_dir, job_name, params):
 if __name__ == "__main__":
     # Load the "reference" parameters from parent_dir json file
     args = parser.parse_args()
+
+    # Check for data and parent dirs.
+    assert os.path.isdir(args.data_dir), f"No data dir for data at {args.data_dir}."
+    assert os.path.isdir(args.parent_dir), f"No parent dir for models at {args.data_dir}."
+
+    # Create and check that base and unique data dirs exist.
+    base_data_dir = os.path.join(args.data_dir, 'base')
+    assert os.path.isdir(base_data_dir), f"No base dir for data at {base_data_dir}."
+
     json_path = os.path.join(args.parent_dir, 'params.json')
     assert os.path.isfile(json_path), "No json configuration file found at {}".format(json_path)
     params = Params(json_path)
 
-    # Perform hypersearch over one parameter
-    n_clusters_list = [2, 3, 4, 5, 6, 7, 8, 9]
-
-    for n_clusters in n_clusters_list:
-        # Modify the relevant parameter in params
-        params.n_clusters = n_clusters
-
-        # Launch job (name has to be unique)
-        job_name = "_n_clusters_{}".format(n_clusters)
-        launch_training_job(args.parent_dir, args.data_dir, job_name, params)
+    for subdir in os.listdir(base_data_dir):
+        subdir_path = os.path.join(base_data_dir, subdir)
+        # parent_dir, data_dir, job_name, params
+        launch_training_job(args.parent_dir, subdir_path, f"{subdir}", params)
