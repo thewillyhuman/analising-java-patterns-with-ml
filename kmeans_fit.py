@@ -28,7 +28,7 @@ parser.add_argument('--database-name', type=str, default='patternminingV2')
 
 
 def explore_kmeans_distributions_and_centroids(model: KMeans, X: pd.DataFrame,
-                                               y: pd.Series, numeric_feature_names: [str]) -> None:
+                                               y: pd.Series, numeric_feature_names: [str], target_name: str) -> None:
     # KMeans model created and fitted with the number of clsuters resulted from the elbow.
     kmeans_model = model
     X_labels = kmeans_model.fit_predict(X)
@@ -45,8 +45,8 @@ def explore_kmeans_distributions_and_centroids(model: KMeans, X: pd.DataFrame,
         current_cluster_individuals = X_labelled[X_labelled['cluster_id'] == current_cluster_index]
         support = len(current_cluster_individuals) / len(X)*100
         current_cluster_individuals = pd.concat([current_cluster_individuals, y], axis=1, join='inner')
-        lows = current_cluster_individuals[current_cluster_individuals['program__user_class'] == 0]
-        highs = current_cluster_individuals[current_cluster_individuals['program__user_class'] == 1]
+        lows = current_cluster_individuals[current_cluster_individuals[target_name] == 0]
+        highs = current_cluster_individuals[current_cluster_individuals[target_name] == 1]
         lows_pct = len(lows) / len(current_cluster_individuals)*100
         highs_pct = len(highs) / len(current_cluster_individuals) * 100
 
@@ -186,5 +186,5 @@ if __name__ == '__main__':
     logging.info("")
     logging.info("")
     logging.info("")
-    explore_kmeans_distributions_and_centroids(model, x, y, numeric_feature_names=numeric_features)
+    explore_kmeans_distributions_and_centroids(model, x, y, numeric_feature_names=numeric_features, target_name=target)
     logging.info("All saved and finished.")

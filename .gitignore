@@ -1,3 +1,4 @@
+*.joblib
 .idea/*
 
 .DS_Store
