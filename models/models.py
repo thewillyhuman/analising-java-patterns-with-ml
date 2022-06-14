@@ -1,5 +1,6 @@
 import logging
 
+import numpy as np
 import pandas as pd
 import sklearn.cluster
 from sklearn.cluster import KMeans
@@ -9,6 +10,7 @@ from yellowbrick.cluster import KElbowVisualizer
 
 from models.evaluation import evaluate_logistic_regression
 from models.utils import Params
+import scipy.stats as st
 
 
 def search_kmeans_elbow(x: pd.DataFrame, from_n_clusters: int, to_n_clusters: int) -> int:
@@ -63,7 +65,7 @@ def build_elastic_log_reg_model(params: Params = None, n_jobs: int = -1) -> Logi
                                   max_iter=1000)
 
 
-def fit_and_evaluate_kmeans(kmeans: KMeans, x: pd.DataFrame, y:pd.Series, target_name: str) -> (KMeans, pd.DataFrame):
+def fit_and_evaluate_kmeans(kmeans: KMeans, x: pd.DataFrame, y:pd.Series, target_name: str, confidence: float = 0.95) -> (KMeans, pd.DataFrame):
     prediction = kmeans.fit_predict(x)
     x_labelled = x.copy()
     x_labelled['cluster_id'] = prediction
@@ -77,9 +79,16 @@ def fit_and_evaluate_kmeans(kmeans: KMeans, x: pd.DataFrame, y:pd.Series, target
         highs = individuals_in_cluster[individuals_in_cluster[target_name] == 1]
         lows_pct = len(lows) / len(individuals_in_cluster) * 100
         highs_pct = len(highs) / len(individuals_in_cluster) * 100
+
         means = individuals_in_cluster.describe().loc['mean'].values.tolist()
         std_devs = individuals_in_cluster.describe().loc['std'].values.tolist()
-        confidence_intervals = [(f"{(mean-(0.05)):.2f}", f"{mean:.2f}", f"{(mean + (0.05)):.2f}") for mean, std_dev in zip(means, std_devs)]
+
+
+        #confidence_intervals = [np.percentile(individuals_in_cluster[feature_name], [100 * (1 - confidence) / 2, 100 * (1 - (1 - confidence) / 2)]).tolist() for feature_name in individuals_in_cluster.columns.values.tolist()]
+        confidence_intervals = [st.norm.interval(alpha=confidence, loc=np.mean(individuals_in_cluster[feature_name]), scale=st.sem(individuals_in_cluster[feature_name])) for feature_name in individuals_in_cluster.columns.values.tolist()]
+        confidence_intervals = [(f"{ci[0]:.3f}", f"{mean:.3f}", f"{ci[1]:.3f}") for ci, mean in zip(confidence_intervals, means)]
+        #confidence_intervals = [(f"{(mean-(0.05)):.2f}", f"{mean:.2f}", f"{(mean + (0.05)):.2f}") for mean, std_dev in zip(means, std_devs)]
+
         cluster_data = [support, lows_pct, highs_pct] + confidence_intervals
         clusters_data.append(cluster_data)
 

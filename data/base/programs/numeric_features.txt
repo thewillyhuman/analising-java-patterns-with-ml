@@ -1,0 +1,5 @@
+program__percentage_of_classes
+program__percentage_of_interfaces
+program__percentage_of_enums
+program__percentage_of_types_in_packages
+program__percentage_of_types_in_default_package
