@@ -11,3 +11,4 @@ conda install scipy -y;
 conda install psycopg2 -y;
 conda install openpyxl -y;
 conda install tabulate -y;
+pip install yellowbrick;
