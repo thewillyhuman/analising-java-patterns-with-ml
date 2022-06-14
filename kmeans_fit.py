@@ -83,7 +83,7 @@ if __name__ == '__main__':
     model, metrics_df = fit_and_evaluate_kmeans(kmeans=kmeans_model, x=x, y=y, target_name=target)
     logging.info("Training finished.")
 
-    logging.info("Evaluation: \n" + tabulate(metrics_df, headers = 'keys', tablefmt = 'psql'))
+    logging.info("Evaluation: \n" + tabulate(metrics_df, headers='keys', tablefmt='tsv', floatfmt=".2f"))
 
     params.inertia = model.inertia_
     params.n_iter = model.n_iter_

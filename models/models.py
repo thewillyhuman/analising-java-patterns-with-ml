@@ -77,10 +77,13 @@ def fit_and_evaluate_kmeans(kmeans: KMeans, x: pd.DataFrame, y:pd.Series, target
         highs = individuals_in_cluster[individuals_in_cluster[target_name] == 1]
         lows_pct = len(lows) / len(individuals_in_cluster) * 100
         highs_pct = len(highs) / len(individuals_in_cluster) * 100
-        cluster_data = [support, lows_pct, highs_pct]
+        means = individuals_in_cluster.describe().loc['mean'].values.tolist()
+        std_devs = individuals_in_cluster.describe().loc['std'].values.tolist()
+        confidence_intervals = [(f"{(mean-(0.05)):.2f}", f"{mean:.2f}", f"{(mean + (0.05)):.2f}") for mean, std_dev in zip(means, std_devs)]
+        cluster_data = [support, lows_pct, highs_pct] + confidence_intervals
         clusters_data.append(cluster_data)
 
-    results_df_columns = ["Support", "Low", "High"]
+    results_df_columns = ["Support", "Low", "High"] + individuals_in_cluster.columns.values.tolist()
     results_df = pd.DataFrame(clusters_data, columns=results_df_columns)
     return kmeans, results_df
 
