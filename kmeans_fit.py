@@ -187,4 +187,8 @@ if __name__ == '__main__':
     logging.info("")
     logging.info("")
     explore_kmeans_distributions_and_centroids(model, x, y, numeric_feature_names=numeric_features, target_name=target)
+    logging.info("")
+    logging.info("")
+    logging.info("")
+    logging.info("Centroids: \n" + tabulate(metrics_df.T, headers='keys', tablefmt='tsv', floatfmt=".2f"))
     logging.info("All saved and finished.")
