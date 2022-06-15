@@ -1,0 +1,13 @@
+2022-06-09 14:23:19,953:INFO: Downloading dataset...
+2022-06-09 14:23:25,890:INFO: Downloaded dataset. Features shape (234094, 81). Target shape (234094,).
+2022-06-09 14:23:26,558:INFO: Features normalized. Features shape (234094, 190). Target shape (234094,).
+2022-06-09 14:23:36,004:INFO: Finished.
+2022-06-09 14:53:38,697:INFO: Downloading dataset...
+2022-06-09 14:53:44,276:INFO: Downloaded dataset. Features shape (234094, 81). Target shape (234094,).
+2022-06-09 14:53:44,940:INFO: Features normalized. Features shape (234094, 190). Target shape (234094,).
+2022-06-09 14:53:44,941:INFO: The dataset contains more than 40 features (190), we will apply feature selection
+2022-06-09 14:54:28,985:INFO: Downloading dataset...
+2022-06-09 14:54:34,576:INFO: Downloaded dataset. Features shape (234094, 81). Target shape (234094,).
+2022-06-09 14:54:35,340:INFO: Features normalized. Features shape (234094, 190). Target shape (234094,).
+2022-06-09 14:54:35,340:INFO: The dataset contains more than 40 features (190), we will apply feature selection
+2022-06-09 14:54:42,373:INFO: Finished.

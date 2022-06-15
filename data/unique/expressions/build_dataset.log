@@ -1,0 +1,9 @@
+2022-06-09 14:22:13,722:INFO: Downloading dataset...
+2022-06-09 14:22:13,935:INFO: Downloaded dataset. Features shape (47759, 8). Target shape (47759,).
+2022-06-09 14:22:14,002:INFO: Features normalized. Features shape (47759, 269). Target shape (47759,).
+2022-06-09 14:22:16,802:INFO: Finished.
+2022-06-09 14:53:16,731:INFO: Downloading dataset...
+2022-06-09 14:53:16,946:INFO: Downloaded dataset. Features shape (47759, 8). Target shape (47759,).
+2022-06-09 14:53:17,011:INFO: Features normalized. Features shape (47759, 269). Target shape (47759,).
+2022-06-09 14:53:17,012:INFO: The dataset contains more than 40 features (269), we will apply feature selection
+2022-06-09 14:53:19,528:INFO: Finished.

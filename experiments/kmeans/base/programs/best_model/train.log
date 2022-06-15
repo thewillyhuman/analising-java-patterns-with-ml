@@ -1,0 +1,63 @@
+2022-06-14 20:31:10,763:INFO: Parameters file found <models.utils.Params object at 0x7f542c025460>.
+2022-06-14 20:31:10,763:INFO: Downloading dataset...
+2022-06-14 20:31:10,855:INFO: Downloaded dataset. Features shape (4651, 7). Target shape (4651,).
+2022-06-14 20:31:10,858:INFO: Features normalized. Features shape (4651, 7). Target shape (4651,).
+2022-06-14 20:31:10,858:INFO: Features scaled. Features shape (4651, 7). Target shape (4651,).
+2022-06-14 20:31:12,747:INFO: Creating model for params [<models.utils.Params object at 0x7f542c025460>]...
+2022-06-14 20:31:12,748:INFO: Starting training
+2022-06-14 20:31:12,996:INFO: Training finished.
+2022-06-14 20:31:12,998:INFO: Evaluation: 
+  	  Support	   Low	  High	program__percentage_of_classes  	program__percentage_of_interfaces  	program__percentage_of_enums  	program__contains_code_in_packages  	program__contains_code_in_default_package  	program__percentage_of_types_in_packages  	program__percentage_of_types_in_default_package  	cluster_id             	program__user_class
+ 0	    13.98	 97.69	  2.31	('82.075', '82.446', '82.818')  	('12.135', '12.529', '12.922')     	('4.567', '5.025', '5.483')   	('nan', '1.000', 'nan')             	('-0.001', '0.005', '0.010')               	('99.980', '99.992', '100.005')           	('-0.004', '0.005', '0.014')                     	('nan', '0.000', 'nan')	('0.012', '0.023', '0.035')
+ 1	    47.99	100.00	  0.00	('99.936', '99.970', '100.004') 	('-0.004', '0.030', '0.064')       	('nan', '0.000', 'nan')       	('0.001', '0.004', '0.006')         	('nan', '1.000', 'nan')                    	('0.015', '0.061', '0.108')               	('99.891', '99.937', '99.984')                   	('nan', '1.000', 'nan')	('nan', '0.000', 'nan')
+ 2	    35.95	 92.82	  7.18	('97.737', '97.892', '98.048')  	('0.768', '0.864', '0.959')        	('1.112', '1.244', '1.376')   	('nan', '1.000', 'nan')             	('0.008', '0.014', '0.019')                	('99.821', '99.881', '99.941')            	('0.053', '0.109', '0.164')                      	('nan', '2.000', 'nan')	('0.059', '0.072', '0.084')
+ 3	     1.61	100.00	  0.00	('62.098', '65.350', '68.603')  	('31.112', '34.383', '37.655')     	('-0.256', '0.267', '0.789')  	('nan', '1.000', 'nan')             	('nan', '0.000', 'nan')                    	('nan', '100.000', 'nan')                 	('nan', '0.000', 'nan')                          	('nan', '3.000', 'nan')	('nan', '0.000', 'nan')
+ 4	     0.47	 95.45	  4.55	('97.666', '98.999', '100.331') 	('-0.218', '0.460', '1.138')       	('-0.207', '0.541', '1.289')  	('nan', '1.000', 'nan')             	('nan', '1.000', 'nan')                    	('56.409', '61.591', '66.773')            	('32.617', '37.818', '43.019')                   	('nan', '4.000', 'nan')	('-0.044', '0.045', '0.135')
+2022-06-14 20:31:13,004:INFO: Data saved.
+2022-06-14 20:31:13,005:INFO: 
+2022-06-14 20:31:13,005:INFO: 
+2022-06-14 20:31:13,005:INFO: Centroids: [program__percentage_of_classes=82.45397949 ∧ program__percentage_of_interfaces=12.50947380 ∧ program__percentage_of_enums=5.03654718 ∧ program__contains_code_in_packages=0.99999988 ∧ program__contains_code_in_default_package=0.00460854 ∧ program__percentage_of_types_in_packages=99.99231720 ∧ program__percentage_of_types_in_default_package=0.00461578].
+2022-06-14 20:31:13,005:INFO: Support: 13.98%.
+2022-06-14 20:31:13,005:INFO: Distribution: 97.69% (low), 2.31% (high).
+2022-06-14 20:31:13,005:INFO: 
+2022-06-14 20:31:13,006:INFO: 
+2022-06-14 20:31:13,006:INFO: Centroids: [program__percentage_of_classes=99.97011566 ∧ program__percentage_of_interfaces=0.02989101 ∧ program__percentage_of_enums=-0.00000072 ∧ program__contains_code_in_packages=0.00358480 ∧ program__contains_code_in_default_package=1.00000012 ∧ program__percentage_of_types_in_packages=0.06129074 ∧ program__percentage_of_types_in_default_package=99.93722534].
+2022-06-14 20:31:13,006:INFO: Support: 47.99%.
+2022-06-14 20:31:13,006:INFO: Distribution: 100.00% (low), 0.00% (high).
+2022-06-14 20:31:13,006:INFO: 
+2022-06-14 20:31:13,006:INFO: 
+2022-06-14 20:31:13,006:INFO: Centroids: [program__percentage_of_classes=97.89864349 ∧ program__percentage_of_interfaces=0.86416399 ∧ program__percentage_of_enums=1.23719096 ∧ program__contains_code_in_packages=0.99999976 ∧ program__contains_code_in_default_package=0.01376480 ∧ program__percentage_of_types_in_packages=99.88085938 ∧ program__percentage_of_types_in_default_package=0.10893631].
+2022-06-14 20:31:13,007:INFO: Support: 35.95%.
+2022-06-14 20:31:13,007:INFO: Distribution: 92.82% (low), 7.18% (high).
+2022-06-14 20:31:13,007:INFO: 
+2022-06-14 20:31:13,007:INFO: 
+2022-06-14 20:31:13,007:INFO: Centroids: [program__percentage_of_classes=65.35009766 ∧ program__percentage_of_interfaces=34.38323975 ∧ program__percentage_of_enums=0.26666677 ∧ program__contains_code_in_packages=1.00000000 ∧ program__contains_code_in_default_package=0.00000000 ∧ program__percentage_of_types_in_packages=100.00000000 ∧ program__percentage_of_types_in_default_package=0.00000000].
+2022-06-14 20:31:13,007:INFO: Support: 1.61%.
+2022-06-14 20:31:13,007:INFO: Distribution: 100.00% (low), 0.00% (high).
+2022-06-14 20:31:13,008:INFO: 
+2022-06-14 20:31:13,008:INFO: 
+2022-06-14 20:31:13,008:INFO: Centroids: [program__percentage_of_classes=98.99851227 ∧ program__percentage_of_interfaces=0.46036053 ∧ program__percentage_of_enums=0.54112554 ∧ program__contains_code_in_packages=0.99999994 ∧ program__contains_code_in_default_package=1.00000000 ∧ program__percentage_of_types_in_packages=61.59090805 ∧ program__percentage_of_types_in_default_package=37.81818390].
+2022-06-14 20:31:13,008:INFO: Support: 0.47%.
+2022-06-14 20:31:13,008:INFO: Distribution: 95.45% (low), 4.55% (high).
+2022-06-14 20:31:13,008:INFO: 
+2022-06-14 20:31:13,008:INFO: 
+2022-06-14 20:31:13,008:INFO: 
+2022-06-14 20:31:13,096:INFO: Cluster [0]. Support [13.9755]. Lows [97.6923]. Highs [2.3077]. (*)
+2022-06-14 20:31:13,099:INFO: 	Identified by feature [program__percentage_of_classes]. Range [82.074 - 82.818].
+2022-06-14 20:31:13,102:INFO: 	Identified by feature [program__percentage_of_interfaces]. Range [12.134 - 12.923].
+2022-06-14 20:31:13,105:INFO: 	Identified by feature [program__percentage_of_enums]. Range [4.567 - 5.484].
+2022-06-14 20:31:13,113:INFO: Cluster [1]. Support [47.9897]. Lows [100.0000]. Highs [0.0000]. (*)
+2022-06-14 20:31:13,117:INFO: 	Identified by feature [program__percentage_of_classes]. Range [99.936 - 100.004].
+2022-06-14 20:31:13,120:INFO: 	Identified by feature [program__percentage_of_interfaces]. Range [-0.004 - 0.064].
+2022-06-14 20:31:13,123:INFO: 	Identified by feature [program__percentage_of_enums]. Range [0.000 - 0.000].
+2022-06-14 20:31:13,126:INFO: 	Identified by feature [program__percentage_of_types_in_packages]. Range [0.015 - 0.108].
+2022-06-14 20:31:13,129:INFO: 	Identified by feature [program__percentage_of_types_in_default_package]. Range [99.891 - 99.984].
+2022-06-14 20:31:13,131:INFO: Cluster [2]. Support [35.9493]. Lows [92.8230]. Highs [7.1770]. (*)
+2022-06-14 20:31:13,148:INFO: Cluster [3]. Support [1.6126]. Lows [100.0000]. Highs [0.0000]. (*)
+2022-06-14 20:31:13,151:INFO: 	Identified by feature [program__percentage_of_classes]. Range [62.043 - 68.657].
+2022-06-14 20:31:13,154:INFO: 	Identified by feature [program__percentage_of_interfaces]. Range [31.057 - 37.709].
+2022-06-14 20:31:13,165:INFO: Cluster [4]. Support [0.4730]. Lows [95.4545]. Highs [4.5455]. (*)
+2022-06-14 20:31:13,176:INFO: 	Identified by feature [program__percentage_of_types_in_packages]. Range [56.093 - 67.089].
+2022-06-14 20:31:13,179:INFO: 	Identified by feature [program__percentage_of_types_in_default_package]. Range [32.300 - 43.337].
+2022-06-14 20:31:13,179:INFO: Support of clusters associated with a level of experience: 100.0000.
+2022-06-14 20:31:13,180:INFO: All saved and finished.

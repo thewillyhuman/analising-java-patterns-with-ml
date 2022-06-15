@@ -1,0 +1,21 @@
+2022-06-09 21:00:31,578:INFO: Parameters file found <models.utils.Params object at 0x14b977a60>.
+2022-06-09 21:00:31,578:INFO: Downloading dataset...
+2022-06-09 21:00:31,616:INFO: Downloaded dataset. Features shape (305, 7). Target shape (305,).
+2022-06-09 21:00:31,617:INFO: Features normalized. Features shape (305, 7). Target shape (305,).
+2022-06-09 21:00:31,617:INFO: Features scaled. Features shape (305, 7). Target shape (305,).
+2022-06-09 21:00:31,617:INFO: Creating model for params [<models.utils.Params object at 0x14b977a60>]...
+2022-06-09 21:00:31,618:INFO: Starting training
+2022-06-09 21:00:31,643:INFO: Training finished.
+2022-06-09 21:00:31,643:INFO: Evaluation: 
++----+-----------+----------+----------+
+|    |   Support |      Low |     High |
+|----+-----------+----------+----------|
+|  0 |  62.623   |  35.0785 | 64.9215  |
+|  1 |   9.5082  |  86.2069 | 13.7931  |
+|  2 |   2.29508 | 100      |  0       |
+|  3 |   1.31148 | 100      |  0       |
+|  4 |  22.2951  |  91.1765 |  8.82353 |
+|  5 |   1.96721 | 100      |  0       |
++----+-----------+----------+----------+
+2022-06-09 21:00:31,643:INFO: Data saved.
+2022-06-09 21:00:31,643:INFO: All saved and finished.

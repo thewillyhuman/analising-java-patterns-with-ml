@@ -1,0 +1,16 @@
+2022-06-09 10:58:49,648:INFO: Downloading dataset...
+2022-06-09 10:58:56,581:INFO: Downloading dataset...
+2022-06-09 10:59:26,376:INFO: Downloading dataset...
+2022-06-09 10:59:27,196:INFO: Downloaded dataset. Features shape (58393, 39). Target shape (58393,).
+2022-06-09 10:59:27,266:INFO: Features normalized. Features shape (58393, 97). Target shape (58393,).
+2022-06-09 10:59:27,323:INFO: Features scaled. Features shape (58393, 97). Target shape (58393,).
+2022-06-09 10:59:27,323:INFO: Creating model for params [None]...
+2022-06-09 10:59:27,323:INFO: Starting training
+2022-06-09 10:59:29,571:INFO: Training finished.
+2022-06-09 10:59:29,571:INFO: Accuracy: 0.9739703741758712
+2022-06-09 10:59:29,571:INFO: Recall: 0.9756440940447698
+2022-06-09 10:59:29,571:INFO: Precision score: 0.9814473870556578
+2022-06-09 10:59:29,571:INFO: F1 score: 0.9785371364021463
+2022-06-09 10:59:29,573:INFO: Param: LogisticRegression(l1_ratio=0.0, n_jobs=-1, penalty='elasticnet',
+                   random_state=0, solver='saga')
+2022-06-09 10:59:29,680:INFO: All saved and finished.

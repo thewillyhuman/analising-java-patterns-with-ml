@@ -1,0 +1,6 @@
+2022-06-09 11:23:18,742:INFO: Downloading dataset...
+2022-06-09 11:23:57,293:INFO: Downloaded dataset. Features shape (1078146, 112). Target shape (1078146,).
+2022-06-09 11:24:06,199:INFO: Features normalized. Features shape (1078146, 844). Target shape (1078146,).
+2022-06-09 11:24:19,972:INFO: Features scaled. Features shape (1078146, 844). Target shape (1078146,).
+2022-06-09 11:24:19,974:INFO: Creating model for params [None]...
+2022-06-09 11:24:19,974:INFO: Starting training

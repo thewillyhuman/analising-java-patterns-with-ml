@@ -1,0 +1,46 @@
+2022-06-10 13:17:21,722:INFO: Parameters file found <models.utils.Params object at 0x1203d38e0>.
+2022-06-10 13:17:21,722:INFO: Downloading dataset...
+2022-06-10 13:17:21,782:INFO: Downloaded dataset. Features shape (305, 7). Target shape (305,).
+2022-06-10 13:17:21,782:INFO: Features normalized. Features shape (305, 7). Target shape (305,).
+2022-06-10 13:17:21,783:INFO: Features scaled. Features shape (305, 7). Target shape (305,).
+2022-06-10 13:17:22,012:INFO: Creating model for params [<models.utils.Params object at 0x1203d38e0>]...
+2022-06-10 13:17:22,012:INFO: Starting training
+2022-06-10 13:17:22,023:INFO: Training finished.
+2022-06-10 13:17:22,023:INFO: Evaluation: 
++----+-----------+----------+----------+
+|    |   Support |      Low |     High |
+|----+-----------+----------+----------|
+|  0 |  75.4098  |  43.913  | 56.087   |
+|  1 |   2.29508 | 100      |  0       |
+|  2 |   9.5082  |  86.2069 | 13.7931  |
+|  3 |  11.4754  |  97.1429 |  2.85714 |
+|  4 |   1.31148 | 100      |  0       |
++----+-----------+----------+----------+
+2022-06-10 13:17:22,023:INFO: Data saved.
+2022-06-10 13:17:22,023:INFO: 
+2022-06-10 13:17:22,023:INFO: 
+2022-06-10 13:17:22,023:INFO: Centroids: [program__percentage_of_classes=0.91914046 ∧ program__percentage_of_interfaces=0.04035404 ∧ program__percentage_of_enums=0.04050553 ∧ program__contains_code_in_packages=0.99999994 ∧ program__contains_code_in_default_package=0.00000010 ∧ program__percentage_of_types_in_packages=0.99999988 ∧ program__percentage_of_types_in_default_package=-0.00000006].
+2022-06-10 13:17:22,024:INFO: Support: 75.40983606557377.
+2022-06-10 13:17:22,024:INFO: Distribution: 43.913043478260875% (high), 56.086956521739125% (low).
+2022-06-10 13:17:22,024:INFO: 
+2022-06-10 13:17:22,024:INFO: 
+2022-06-10 13:17:22,024:INFO: Centroids: [program__percentage_of_classes=1.00000000 ∧ program__percentage_of_interfaces=0.00000000 ∧ program__percentage_of_enums=0.00000000 ∧ program__contains_code_in_packages=1.00000000 ∧ program__contains_code_in_default_package=1.00000012 ∧ program__percentage_of_types_in_packages=0.22142845 ∧ program__percentage_of_types_in_default_package=0.77285719].
+2022-06-10 13:17:22,024:INFO: Support: 2.2950819672131146.
+2022-06-10 13:17:22,024:INFO: Distribution: 100.0% (high), 0.0% (low).
+2022-06-10 13:17:22,024:INFO: 
+2022-06-10 13:17:22,024:INFO: 
+2022-06-10 13:17:22,024:INFO: Centroids: [program__percentage_of_classes=0.94928098 ∧ program__percentage_of_interfaces=0.03200575 ∧ program__percentage_of_enums=0.01871324 ∧ program__contains_code_in_packages=1.00000000 ∧ program__contains_code_in_default_package=1.00000012 ∧ program__percentage_of_types_in_packages=0.86034483 ∧ program__percentage_of_types_in_default_package=0.13241379].
+2022-06-10 13:17:22,024:INFO: Support: 9.508196721311474.
+2022-06-10 13:17:22,024:INFO: Distribution: 86.20689655172413% (high), 13.793103448275861% (low).
+2022-06-10 13:17:22,024:INFO: 
+2022-06-10 13:17:22,024:INFO: 
+2022-06-10 13:17:22,024:INFO: Centroids: [program__percentage_of_classes=0.67442757 ∧ program__percentage_of_interfaces=0.29516321 ∧ program__percentage_of_enums=0.03040920 ∧ program__contains_code_in_packages=1.00000000 ∧ program__contains_code_in_default_package=-0.00000003 ∧ program__percentage_of_types_in_packages=1.00000000 ∧ program__percentage_of_types_in_default_package=0.00000001].
+2022-06-10 13:17:22,024:INFO: Support: 11.475409836065573.
+2022-06-10 13:17:22,024:INFO: Distribution: 97.14285714285714% (high), 2.857142857142857% (low).
+2022-06-10 13:17:22,024:INFO: 
+2022-06-10 13:17:22,024:INFO: 
+2022-06-10 13:17:22,024:INFO: Centroids: [program__percentage_of_classes=0.83322191 ∧ program__percentage_of_interfaces=0.16677807 ∧ program__percentage_of_enums=0.00000000 ∧ program__contains_code_in_packages=0.00000000 ∧ program__contains_code_in_default_package=1.00000000 ∧ program__percentage_of_types_in_packages=0.00000000 ∧ program__percentage_of_types_in_default_package=1.00000000].
+2022-06-10 13:17:22,024:INFO: Support: 1.3114754098360655.
+2022-06-10 13:17:22,024:INFO: Distribution: 100.0% (high), 0.0% (low).
+2022-06-10 13:17:22,024:INFO: 
+2022-06-10 13:17:22,024:INFO: All saved and finished.
