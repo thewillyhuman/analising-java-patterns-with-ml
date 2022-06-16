@@ -86,7 +86,9 @@ def fit_and_evaluate_kmeans(kmeans: KMeans, x: pd.DataFrame, y:pd.Series, target
 
         #confidence_intervals = [np.percentile(individuals_in_cluster[feature_name], [100 * (1 - confidence) / 2, 100 * (1 - (1 - confidence) / 2)]).tolist() for feature_name in individuals_in_cluster.columns.values.tolist()]
         confidence_intervals = [st.norm.interval(alpha=confidence, loc=np.mean(individuals_in_cluster[feature_name]), scale=st.sem(individuals_in_cluster[feature_name])) for feature_name in individuals_in_cluster.columns.values.tolist()]
-        confidence_intervals = [(f"{ci[0]:.3f}", f"{mean:.3f}", f"{ci[1]:.3f}") for ci, mean in zip(confidence_intervals, means)]
+
+        # confidence_intervals = [(f"{ci[0]:.3f}", f"{mean:.3f}", f"{ci[1]:.3f}") for ci, mean in zip(confidence_intervals, means)]
+        confidence_intervals = [f"[{ci[0]:.3f} - {ci[1]:.3f}]" for ci, mean in zip(confidence_intervals, means)]
         #confidence_intervals = [(f"{(mean-(0.05)):.2f}", f"{mean:.2f}", f"{(mean + (0.05)):.2f}") for mean, std_dev in zip(means, std_devs)]
 
         cluster_data = [support, lows_pct, highs_pct] + confidence_intervals

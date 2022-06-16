@@ -66,4 +66,31 @@
 #python kmeans_fit.py --data-dir data/base/het2 --model-dir experiments/kmeans/base/het2/best_model --compute-elbow --database-name patternmining;
 #python kmeans_fit.py --data-dir data/base/het3 --model-dir experiments/kmeans/base/het3/best_model --compute-elbow --database-name patternmining;
 #python kmeans_fit.py --data-dir data/base/het4 --model-dir experiments/kmeans/base/het4/best_model --compute-elbow --database-name patternmining;
-python kmeans_fit.py --data-dir data/base/het5 --model-dir experiments/kmeans/base/het5/best_model --compute-elbow --database-name patternmining;
+#python kmeans_fit.py --data-dir data/base/het5 --model-dir experiments/kmeans/base/het5/best_model --compute-elbow --database-name patternmining;
+# python kmeans_fit.py --data-dir data/base/programs --model-dir experiments/visualizations/programs --compute-elbow --database-name patternmining;
+# python kmeans_fit.py --data-dir data/base/type_defs --model-dir experiments/visualizations/type_defs --compute-elbow --database-name patternmining;
+# python kmeans_fit.py --data-dir data/base/field_defs --model-dir experiments/visualizations/field_defs --compute-elbow --database-name patternmining;
+# python kmeans_fit.py --data-dir data/base/method_defs --model-dir experiments/visualizations/method_defs --compute-elbow --database-name patternmining;
+# python kmeans_fit.py --data-dir data/base/types --model-dir experiments/visualizations/types --compute-elbow --database-name patternmining;
+# python kmeans_fit.py --data-dir data/base/expressions --model-dir experiments/visualizations/expressions --compute-elbow --database-name patternmining;
+# python kmeans_fit.py --data-dir data/base/statements --model-dir experiments/visualizations/statements --compute-elbow --database-name patternmining;
+# python kmeans_fit.py --data-dir data/base/het1 --model-dir experiments/visualizations/het1 --compute-elbow --database-name patternmining;
+# python kmeans_fit.py --data-dir data/base/het2 --model-dir experiments/visualizations/het2 --compute-elbow --database-name patternmining;
+# python kmeans_fit.py --data-dir data/base/het3 --model-dir experiments/visualizations/het3 --compute-elbow --database-name patternmining;
+# python kmeans_fit.py --data-dir data/base/het4 --model-dir experiments/visualizations/het4 --compute-elbow --database-name patternmining;
+# python kmeans_fit.py --data-dir data/base/het5 --model-dir experiments/visualizations/het5 --compute-elbow --database-name patternmining;
+
+
+
+python visualize_data.py --data-dir data/base/programs --model-dir experiments/visualizations/programs --database-name patternmining;
+# python visualize_data.py --data-dir data/base/type_defs --model-dir experiments/visualizations/type_defs --database-name patternmining;
+python visualize_data.py --data-dir data/base/field_defs --model-dir experiments/visualizations/field_defs --database-name patternmining;
+# python visualize_data.py --data-dir data/base/method_defs --model-dir experiments/visualizations/method_defs --database-name patternmining;
+python visualize_data.py --data-dir data/base/types --model-dir experiments/visualizations/types --database-name patternmining;
+# python visualize_data.py --data-dir data/base/expressions --model-dir experiments/visualizations/expressions --database-name patternmining;
+python visualize_data.py --data-dir data/base/statements --model-dir experiments/visualizations/statements --database-name patternmining;
+# python visualize_data.py --data-dir data/base/het1 --model-dir experiments/visualizations/het1 --database-name patternmining;
+python visualize_data.py --data-dir data/base/het2 --model-dir experiments/visualizations/het2 --database-name patternmining;
+# python visualize_data.py --data-dir data/base/het3 --model-dir experiments/visualizations/het3 --database-name patternmining;
+python visualize_data.py --data-dir data/base/het4 --model-dir experiments/visualizations/het4 --database-name patternmining;
+# python visualize_data.py --data-dir data/base/het5 --model-dir experiments/visualizations/het5 --database-name patternmining;
