@@ -1,15 +1,15 @@
-2022-06-10 14:42:45,187:INFO: Downloading dataset...
-2022-06-10 14:42:45,254:INFO: Downloaded dataset. Features shape (4651, 7). Target shape (4651,).
-2022-06-10 14:42:45,256:INFO: Features normalized. Features shape (4651, 7). Target shape (4651,).
-2022-06-10 14:42:45,257:INFO: Features scaled. Features shape (4651, 7). Target shape (4651,).
-2022-06-10 14:42:45,257:INFO: Creating model for params [<models.utils.Params object at 0x1214dc610>]...
-2022-06-10 14:42:45,257:INFO: Starting training
-2022-06-10 14:42:45,461:INFO: Training finished.
-2022-06-10 14:42:45,461:INFO: Accuracy: 0.9720730397422127
-2022-06-10 14:42:45,461:INFO: Recall: 0.037037037037037035
-2022-06-10 14:42:45,461:INFO: Precision score: 1.0
-2022-06-10 14:42:45,461:INFO: F1 score: 0.07142857142857142
-2022-06-10 14:42:45,462:INFO: Param: LogisticRegression(C=100, l1_ratio=0.01, max_iter=1000, n_jobs=-1,
+2022-06-17 19:52:47,065:INFO: Downloading dataset...
+2022-06-17 19:52:47,161:INFO: Downloaded dataset. Features shape (4651, 7). Target shape (4651,).
+2022-06-17 19:52:47,163:INFO: Features normalized. Features shape (4651, 7). Target shape (4651,).
+2022-06-17 19:52:47,164:INFO: Features scaled. Features shape (4651, 7). Target shape (4651,).
+2022-06-17 19:52:47,164:INFO: Creating model for params [<models.utils.Params object at 0x137341790>]...
+2022-06-17 19:52:47,164:INFO: Starting training
+2022-06-17 19:52:47,359:INFO: Training finished.
+2022-06-17 19:52:47,360:INFO: Accuracy: 0.9709989258861439
+2022-06-17 19:52:47,360:INFO: Recall: 0.9709989258861439
+2022-06-17 19:52:47,360:INFO: Precision score: 0.9709989258861439
+2022-06-17 19:52:47,360:INFO: F1 score: 0.9709989258861439
+2022-06-17 19:52:47,360:INFO: Param: LogisticRegression(C=100, l1_ratio=0.01, max_iter=1000, n_jobs=-1,
                    penalty='elasticnet', random_state=0, solver='saga')
-2022-06-10 14:42:45,463:INFO: Data saved.
-2022-06-10 14:42:45,602:INFO: All saved and finished.
+2022-06-17 19:52:47,361:INFO: Data saved.
+2022-06-17 19:52:47,456:INFO: All saved and finished.

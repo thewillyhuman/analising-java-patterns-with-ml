@@ -107,7 +107,7 @@ def train_and_evaluate_log_reg(log_reg: LogisticRegression, x: pd.DataFrame, y: 
     :param y: is the targets dataset.
     :return: the fitted model, the accuracy, the recall, the precision and the f1 score.
     """
-    x_train, x_test, y_train, y_test = train_test_split(x, y, stratify=y, test_size=0.2, random_state=0)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, stratify=y, test_size=0.2)
     log_reg.fit(x_train, y_train)
     acc, rec, pre, f1 = evaluate_logistic_regression(log_reg=log_reg, x_test=x_test, y_test=y_test)
 

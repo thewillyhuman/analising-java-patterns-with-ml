@@ -1,0 +1,6 @@
+2022-06-17 19:48:51,178:INFO: Downloading dataset...
+2022-06-17 19:48:56,925:INFO: Downloaded dataset. Features shape (1759636, 7). Target shape (1759636,).
+2022-06-17 19:48:58,032:INFO: Features normalized. Features shape (1759636, 34). Target shape (1759636,).
+2022-06-17 19:48:58,815:INFO: Features scaled. Features shape (1759636, 34). Target shape (1759636,).
+2022-06-17 19:48:58,815:INFO: Creating model for params [<models.utils.Params object at 0x15b07c790>]...
+2022-06-17 19:48:58,815:INFO: Starting training

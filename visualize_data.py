@@ -7,7 +7,7 @@ from matplotlib import pyplot as plt
 from sklearn.decomposition import PCA, KernelPCA, NMF
 from sklearn.manifold import TSNE
 
-from build_dataset import download_data, normalize_datatypes
+from build_dataset import download_data, normalize_datatypes, scale_data_to_range_0_1
 from models.utils import set_logger
 
 parser = argparse.ArgumentParser()
@@ -48,6 +48,9 @@ if __name__ == '__main__':
     # OneHot encoding
     x, y, features = normalize_datatypes(x, y)
     logging.info("Features normalized. Features shape {}. Target shape {}.".format(x.shape, y.shape))
+
+    # Scale features to range 0 1
+    # x = scale_data_to_range_0_1(x, features, percentage_features)
 
     if len(x) > 50000:
         logging.info(f"Sampling data to 50.000 instances before ploting")
