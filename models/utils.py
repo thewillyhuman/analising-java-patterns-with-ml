@@ -1,11 +1,68 @@
-"""General utility functions"""
+"""General utility functions and classes"""
 
 import json
 import logging
+import os
 
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.feature_selection import SelectFromModel
+
+
+class Dataset:
+    """Class that loads a dataset from a directory.
+    Example:
+    ```
+    dataset = Dataset(data_dir)
+    print(dataset.x)
+    print(dataset.y)
+    print(dataset.features)
+    """
+
+    def __init__(self, data_dir: str) -> None:
+        self.dataset_path_ = os.path.join(data_dir, 'dataset_and_target.csv')
+        self.features_path_ = os.path.join(data_dir, 'features.txt')
+        self.percentage_features_path_ = os.path.join(data_dir, 'percentage_features.txt')
+        self.numeric_features_path_ = os.path.join(data_dir, 'numeric_features.txt')
+        self.target_path_ = os.path.join(data_dir, 'target.txt')
+
+        # Check every file exists.
+        assert os.path.isfile(self.features_path_)
+        assert os.path.isfile(self.target_path_)
+        assert os.path.isfile(self.numeric_features_path_)
+        assert os.path.isfile(self.percentage_features_path_)
+        assert os.path.isfile(self.dataset_path_)
+
+        self.features = None  # String list features.
+        self.target = None  # String target column name.
+        self.numeric_features = None  # String list numeric features.
+        self.percentage_features = None  # String list percentage features.
+        self.dataset = None  # Full dataset.
+        self.x = None  # Dataset without target.
+        self.y = None  # Dataset target.
+
+        self.update()
+
+    def update(self) -> None:
+        """Updates all Dataset parameters from the Dataset instance"""
+
+        # Load features.
+        with open(self.features_path_) as f:
+            self.features = [feature.rstrip() for feature in f.readlines()]
+
+        # Load target.
+        with open(self.target_path_) as f:
+            self.target = f.read()
+
+        # Load numeric features.
+        with open(self.numeric_features_path_) as f:
+            self.numeric_features = [feature.rstrip() for feature in f.readlines()]
+
+        # Load percentage features.
+        with open(self.percentage_features_path_) as f:
+            self.percentage_features = [feature.rstrip() for feature in f.readlines()]
+
+        self.dataset = pd.read_csv(self.dataset_path_)
+        self.x = self.dataset[self.features].copy()
+        self.y = self.dataset[self.target].copy()
 
 
 class Params:
@@ -74,24 +131,3 @@ def save_dict_to_json(d, json_path):
         # We need to convert the values to float for json (it doesn't accept np.array, np.float, )
         d = {k: float(v) for k, v in d.items()}
         json.dump(d, f, indent=4)
-
-
-def select_features(X: pd.DataFrame, y: pd.Series):
-    current_set = None
-    while True:
-        clf = RandomForestClassifier(n_estimators=100, n_jobs=-1, random_state=0)
-        sfm = SelectFromModel(clf, threshold='mean')
-        sfm.fit(X, y)
-
-        features = set(sfm.get_support(indices=True))
-        feature_idx = sfm.get_support()
-        if current_set is None:
-            new_set = features
-        else:
-            new_set = set.intersection(current_set, features)
-            if len(current_set) - len(new_set) <= 0:
-                break
-
-        current_set = new_set
-
-    return X.columns[feature_idx]

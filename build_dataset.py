@@ -1,8 +1,9 @@
-import pandas as pd
-import sqlalchemy
 import argparse
 import logging
 import os
+
+import pandas as pd
+import sqlalchemy
 
 from models.utils import set_logger
 
@@ -23,20 +24,21 @@ def load_dataset_from_csv(data_dir: str) -> (pd.DataFrame, pd.Series, [str], str
 
     assert os.path.isfile(dataset_path), f"No dataset fount at {dataset_path}"
     assert os.path.isfile(features_path), f"No features found at {features_path}"
-    assert os.path.isfile(percentage_features_path), f"No percentage features found at {percentage_features_path}"
+    assert os.path.isfile(
+        percentage_features_path), f"No percentage features found at {percentage_features_path}"
     assert os.path.isfile(target_path), f"No target found at {target_path}"
 
     features = [feature.rstrip() for feature in open(features_path, mode='r').readlines()]
-    percentage_features = [feature.rstrip() for feature in open(percentage_features_path, mode='r').readlines()]
+    percentage_features = [feature.rstrip() for feature in
+                           open(percentage_features_path, mode='r').readlines()]
     target = open(target_path, mode='r').read()
 
     full_table = pd.read_csv(dataset_path)
-    return full_table[features], full_table['user_class'], features, percentage_features, target
+    return full_table[features], full_table[target], features, percentage_features, target
 
 
-
-
-def download_data(query: str, database_name: str, features: [str], target: str) -> (pd.DataFrame, pd.Series):
+def download_data(query: str, database_name: str, features: [str], target: str) -> (
+        pd.DataFrame, pd.Series):
     # Connect to the database.
     db_conn_str = f"postgresql://{DATABASE_USERNAME}:{DATABASE_PASSWORD}@{DATABASE_IP}:{DATABASE_PORT}/{database_name}"
     db_conn = sqlalchemy.create_engine(db_conn_str)
@@ -56,7 +58,8 @@ def normalize_datatypes(x: pd.DataFrame, y: pd.Series) -> (pd.DataFrame, pd.Seri
     return x, y, columns_names
 
 
-def scale_data_to_range_0_1(x: pd.DataFrame, feature_names: [str], percentage_feature_names: [str]) -> pd.DataFrame:
+def scale_data_to_range_0_1(x: pd.DataFrame, feature_names: [str],
+                            percentage_feature_names: [str]) -> pd.DataFrame:
     for column in feature_names:
         if column in percentage_feature_names:
             x[column] = x[column] / 100.0
@@ -85,14 +88,8 @@ def build_dataset(database_name: str, data_dir: str) -> None:
     x, y = download_data(query=query, database_name=database_name, features=features, target=target)
     logging.info(f"Dataset downloaded. Features shape {x.shape}. Target shape {y.shape}.")
 
-    # OneHot encoding
-    #logging.info(f"Applying OneHot encoder...")
-    #x, y, features = normalize_datatypes(x, y)
-    #y = [0 if value == 'low' else 1 for value in y]  # low = 0, high = 1.
-    #logging.info(f"Shapes after OneHot encoding: features {x.shape}, target {len(y)}.")
-
     logging.info("Saving dataset to a single csv.")
-    x['user_class'] = y
+    x[target] = y
     out_file_path = os.path.join(data_dir, 'dataset_and_target.csv')
     x.to_csv(out_file_path, index=False)
     logging.info("Dataset saved.")

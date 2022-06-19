@@ -9,7 +9,8 @@ from build_dataset import load_dataset_from_csv, normalize_datatypes, scale_data
 from models.utils import Params, set_logger
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--data-dir', type=str, required=True, help="Directory containing query and features")
+parser.add_argument('--data-dir', type=str, required=True,
+                    help="Directory containing query and features")
 parser.add_argument('--model-dir', type=str, required=True, help="Directory containing params.json")
 
 
@@ -31,7 +32,8 @@ def fit_kmeans(x: pd.DataFrame, y: pd.Series, params: Params):
             highs = individuals_in_cluster[individuals_in_cluster['user_class'] == 1]
             lows_pct = len(lows) / len(individuals_in_cluster) * 100
             highs_pct = len(highs) / len(individuals_in_cluster) * 100
-            logging.info(f"Algorithm [{model.__class__.__name__}]. N_of_clusters [{n_clusters}]. Cluster_n. [{cluster_n}]. Supp. [{support:.2f}%]. Lows [{lows_pct:.2f}%]. Highs [{highs_pct:.2f}%].")
+            logging.info(
+                f"Algorithm [{model.__class__.__name__}]. N_of_clusters [{n_clusters}]. Cluster_n. [{cluster_n}]. Supp. [{support:.2f}%]. Lows [{lows_pct:.2f}%]. Highs [{highs_pct:.2f}%].")
 
 
 def fit_db_scan(x: pd.DataFrame, y: pd.Series, params: Params):
@@ -53,7 +55,8 @@ def fit_db_scan(x: pd.DataFrame, y: pd.Series, params: Params):
             highs = individuals_in_cluster[individuals_in_cluster['user_class'] == 1]
             lows_pct = len(lows) / len(individuals_in_cluster) * 100
             highs_pct = len(highs) / len(individuals_in_cluster) * 100
-            logging.info(f"Algorithm [{model.__class__.__name__}]. EPS [{eps_value}]. N_of_clusters [{n_clusters}]. Cluster_n. [{cluster_n}]. Supp. [{support:.2f}%]. Lows [{lows_pct:.2f}%]. Highs [{highs_pct:.2f}%].")
+            logging.info(
+                f"Algorithm [{model.__class__.__name__}]. EPS [{eps_value}]. N_of_clusters [{n_clusters}]. Cluster_n. [{cluster_n}]. Supp. [{support:.2f}%]. Lows [{lows_pct:.2f}%]. Highs [{highs_pct:.2f}%].")
 
 
 def fit_optics(x: pd.DataFrame, y: pd.Series, params: Params):
@@ -75,8 +78,8 @@ def fit_optics(x: pd.DataFrame, y: pd.Series, params: Params):
             highs = individuals_in_cluster[individuals_in_cluster['user_class'] == 1]
             lows_pct = len(lows) / len(individuals_in_cluster) * 100
             highs_pct = len(highs) / len(individuals_in_cluster) * 100
-            logging.info(f"Algorithm [{model.__class__.__name__}]. Min. samples [{min_samples}]. N_of_clusters [{n_clusters}]. Cluster_n. [{cluster_n}]. Supp. [{support:.2f}%]. Lows [{lows_pct:.2f}%]. Highs [{highs_pct:.2f}%].")
-
+            logging.info(
+                f"Algorithm [{model.__class__.__name__}]. Min. samples [{min_samples}]. N_of_clusters [{n_clusters}]. Cluster_n. [{cluster_n}]. Supp. [{support:.2f}%]. Lows [{lows_pct:.2f}%]. Highs [{highs_pct:.2f}%].")
 
 
 if __name__ == '__main__':

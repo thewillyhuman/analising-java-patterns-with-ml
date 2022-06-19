@@ -2,7 +2,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score
 
 
-def evaluate_logistic_regression(log_reg: LogisticRegression, x_test, y_test) -> (float, float, float, float):
+def evaluate_logistic_regression(log_reg: LogisticRegression, x_test, y_test) -> (
+        float, float, float, float):
     """Evaluate the model
 
     Evaluates the model by means of accuracy, recall, precision and f1 scores.

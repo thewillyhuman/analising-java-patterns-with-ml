@@ -6,7 +6,6 @@ import os
 
 from tabulate import tabulate
 
-
 parser = argparse.ArgumentParser()
 parser.add_argument('--parent-dir', default='experiments',
                     help='Directory containing results of experiments')

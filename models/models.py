@@ -1,8 +1,6 @@
-import logging
-
 import numpy as np
 import pandas as pd
-import sklearn.cluster
+import scipy.stats as st
 from sklearn.cluster import KMeans
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
@@ -10,7 +8,6 @@ from yellowbrick.cluster import KElbowVisualizer
 
 from models.evaluation import evaluate_logistic_regression
 from models.utils import Params
-import scipy.stats as st
 
 
 def search_kmeans_elbow(x: pd.DataFrame, from_n_clusters: int, to_n_clusters: int) -> int:
@@ -65,7 +62,8 @@ def build_elastic_log_reg_model(params: Params = None, n_jobs: int = -1) -> Logi
                                   max_iter=1000)
 
 
-def fit_and_evaluate_kmeans(kmeans: KMeans, x: pd.DataFrame, y:pd.Series, target_name: str, confidence: float = 0.95) -> (KMeans, pd.DataFrame):
+def fit_and_evaluate_kmeans(kmeans: KMeans, x: pd.DataFrame, y: pd.Series, target_name: str,
+                            confidence: float = 0.95) -> (KMeans, pd.DataFrame):
     prediction = kmeans.fit_predict(x)
     x_labelled = x.copy()
     x_labelled['cluster_id'] = prediction
@@ -83,13 +81,16 @@ def fit_and_evaluate_kmeans(kmeans: KMeans, x: pd.DataFrame, y:pd.Series, target
         means = individuals_in_cluster.describe().loc['mean'].values.tolist()
         std_devs = individuals_in_cluster.describe().loc['std'].values.tolist()
 
-
-        #confidence_intervals = [np.percentile(individuals_in_cluster[feature_name], [100 * (1 - confidence) / 2, 100 * (1 - (1 - confidence) / 2)]).tolist() for feature_name in individuals_in_cluster.columns.values.tolist()]
-        confidence_intervals = [st.norm.interval(alpha=confidence, loc=np.mean(individuals_in_cluster[feature_name]), scale=st.sem(individuals_in_cluster[feature_name])) for feature_name in individuals_in_cluster.columns.values.tolist()]
+        # confidence_intervals = [np.percentile(individuals_in_cluster[feature_name], [100 * (1 - confidence) / 2, 100 * (1 - (1 - confidence) / 2)]).tolist() for feature_name in individuals_in_cluster.columns.values.tolist()]
+        confidence_intervals = [
+            st.norm.interval(alpha=confidence, loc=np.mean(individuals_in_cluster[feature_name]),
+                             scale=st.sem(individuals_in_cluster[feature_name])) for feature_name in
+            individuals_in_cluster.columns.values.tolist()]
 
         # confidence_intervals = [(f"{ci[0]:.3f}", f"{mean:.3f}", f"{ci[1]:.3f}") for ci, mean in zip(confidence_intervals, means)]
-        confidence_intervals = [f"[{ci[0]:.3f} - {ci[1]:.3f}]" for ci, mean in zip(confidence_intervals, means)]
-        #confidence_intervals = [(f"{(mean-(0.05)):.2f}", f"{mean:.2f}", f"{(mean + (0.05)):.2f}") for mean, std_dev in zip(means, std_devs)]
+        confidence_intervals = [f"[{ci[0]:.3f} - {ci[1]:.3f}]" for ci, mean in
+                                zip(confidence_intervals, means)]
+        # confidence_intervals = [(f"{(mean-(0.05)):.2f}", f"{mean:.2f}", f"{(mean + (0.05)):.2f}") for mean, std_dev in zip(means, std_devs)]
 
         cluster_data = [support, lows_pct, highs_pct] + confidence_intervals
         clusters_data.append(cluster_data)
@@ -99,7 +100,8 @@ def fit_and_evaluate_kmeans(kmeans: KMeans, x: pd.DataFrame, y:pd.Series, target
     return kmeans, results_df
 
 
-def train_and_evaluate_log_reg(log_reg: LogisticRegression, x: pd.DataFrame, y: pd.Series) -> (LogisticRegression, float, float, float, float):
+def train_and_evaluate_log_reg(log_reg: LogisticRegression, x: pd.DataFrame, y: pd.Series) -> (
+        LogisticRegression, float, float, float, float):
     """Fits and evaluates the given logistic regression model
 
     :param log_reg: is the model to fit. Needs to be parametrized.
@@ -114,7 +116,8 @@ def train_and_evaluate_log_reg(log_reg: LogisticRegression, x: pd.DataFrame, y: 
     return log_reg, acc, rec, pre, f1
 
 
-def save_log_reg_coefs_to_excel(log_reg: LogisticRegression, features: [str], out_file_path: str) -> None:
+def save_log_reg_coefs_to_excel(log_reg: LogisticRegression, features: [str],
+                                out_file_path: str) -> None:
     tmp_df = pd.DataFrame(log_reg.coef_).T
     tmp_df['features'] = features
     tmp_df.to_excel(excel_writer=out_file_path)

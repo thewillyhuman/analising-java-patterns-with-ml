@@ -1,6 +1,6 @@
 {
-    "n_clusters": 8,
-    "inertia": 2.310568332672119,
-    "n_iter": 6,
-    "n_features_in": 7
+  "n_clusters": 8,
+  "inertia": 2.310568332672119,
+  "n_iter": 6,
+  "n_features_in": 7
 }

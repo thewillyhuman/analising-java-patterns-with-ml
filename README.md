@@ -2,8 +2,7 @@
 
 Abstract of the paper here...
 
-## Repository layout 
-
+## Repository layout
 
 ## Reproduccing the experiments
 

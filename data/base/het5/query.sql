@@ -1,1 +1,2 @@
-SELECT * from het5;
+SELECT *
+from het5;

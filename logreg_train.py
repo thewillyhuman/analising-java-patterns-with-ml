@@ -3,14 +3,15 @@ import logging
 import os
 
 from build_dataset import download_data, normalize_datatypes, scale_data_to_range_0_1
-from models.models import build_elastic_log_reg_model, train_and_evaluate_log_reg, save_log_reg_coefs_to_excel
+from models.models import build_elastic_log_reg_model, train_and_evaluate_log_reg, \
+    save_log_reg_coefs_to_excel
 from models.utils import Params, set_logger
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--data-dir', type=str, required=True, help="Directory containing query and features")
+parser.add_argument('--data-dir', type=str, required=True,
+                    help="Directory containing query and features")
 parser.add_argument('--model-dir', type=str, required=True, help="Directory containing params.json")
 parser.add_argument('--database-name', type=str, default='patternminingV2')
-
 
 if __name__ == '__main__':
 
@@ -21,8 +22,11 @@ if __name__ == '__main__':
     target_path = os.path.join(args.data_dir, 'target.txt')
     percentage_features_path = os.path.join(args.data_dir, 'percentage_features.txt')
     assert os.path.isfile(query_path), "No json configuration file found at {}".format(query_path)
-    assert os.path.isfile(features_path), "No json configuration file found at {}".format(features_path)
-    assert os.path.isfile(percentage_features_path), "No json configuration file found at {}".format(percentage_features_path)
+    assert os.path.isfile(features_path), "No json configuration file found at {}".format(
+        features_path)
+    assert os.path.isfile(
+        percentage_features_path), "No json configuration file found at {}".format(
+        percentage_features_path)
 
     # Load the parameters from the experiment params.json file in model_dir
     json_path = os.path.join(args.model_dir, 'params.json')
@@ -39,13 +43,16 @@ if __name__ == '__main__':
     query = open(query_path, mode='r').read()
     features = [feature.rstrip() for feature in open(features_path, mode='r').readlines()]
     target = open(target_path, mode='r').read()
-    percentage_features = [feature.rstrip() for feature in open(percentage_features_path, mode='r').readlines()]
-    x, y = download_data(query=query, database_name=args.database_name, features=features, target=target)
+    percentage_features = [feature.rstrip() for feature in
+                           open(percentage_features_path, mode='r').readlines()]
+    x, y = download_data(query=query, database_name=args.database_name, features=features,
+                         target=target)
     logging.info("Downloaded dataset. Features shape {}. Target shape {}.".format(x.shape, y.shape))
 
     # OneHot encoding
     x, y, features = normalize_datatypes(x, y)
-    logging.info("Features normalized. Features shape {}. Target shape {}.".format(x.shape, y.shape))
+    logging.info(
+        "Features normalized. Features shape {}. Target shape {}.".format(x.shape, y.shape))
 
     # Scale features to range 0 1
     x = scale_data_to_range_0_1(x, features, percentage_features)

@@ -29,8 +29,9 @@ def launch_training_job(parent_dir, data_dir, job_name, params):
     params.save(json_path)
 
     # Launch training with this config
-    cmd = "{python} clustering_fit.py --model-dir {model_dir} --data-dir {data_dir}".format(python=PYTHON,
-            model_dir=model_dir, data_dir=data_dir)
+    cmd = "{python} clustering_fit.py --model-dir {model_dir} --data-dir {data_dir}".format(
+        python=PYTHON,
+        model_dir=model_dir, data_dir=data_dir)
     print(cmd)
     check_call(cmd, shell=True)
 

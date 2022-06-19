@@ -1,0 +1,33 @@
+2022-06-18 19:33:54,378:INFO: Downloading dataset [data/base/types]...
+2022-06-18 19:34:06,036:INFO: Dataset downloaded. Features shape (1759636, 7). Target shape (1759636,).
+2022-06-18 19:34:06,036:INFO: Saving dataset to a single csv.
+2022-06-18 19:34:08,681:INFO: Dataset saved.
+2022-06-18 19:34:08,804:INFO: Downloading dataset [data/base/field_defs]...
+2022-06-18 19:34:12,215:INFO: Dataset downloaded. Features shape (239998, 10). Target shape (239998,).
+2022-06-18 19:34:12,215:INFO: Saving dataset to a single csv.
+2022-06-18 19:34:12,679:INFO: Dataset saved.
+2022-06-18 19:34:12,721:INFO: Downloading dataset [data/base/het1]...
+2022-06-18 19:34:15,035:INFO: Dataset downloaded. Features shape (96956, 29). Target shape (96956,).
+2022-06-18 19:34:15,035:INFO: Saving dataset to a single csv.
+2022-06-18 19:34:15,504:INFO: Dataset saved.
+2022-06-18 19:34:15,513:INFO: Downloading dataset [data/base/programs]...
+2022-06-18 19:34:16,208:INFO: Dataset downloaded. Features shape (4651, 7). Target shape (4651,).
+2022-06-18 19:34:16,208:INFO: Saving dataset to a single csv.
+2022-06-18 19:34:16,227:INFO: Dataset saved.
+2022-06-18 19:34:16,227:INFO: Downloading dataset [data/base/statements]...
+2022-06-18 19:34:38,279:INFO: Dataset downloaded. Features shape (3136735, 7). Target shape (3136735,).
+2022-06-18 19:34:38,279:INFO: Saving dataset to a single csv.
+2022-06-18 19:34:43,958:INFO: Dataset saved.
+2022-06-18 19:34:44,336:INFO: Downloading dataset [data/base/expressions]...
+2022-06-18 19:45:24,121:INFO: Dataset downloaded. Features shape (11235992, 8). Target shape (11235992,).
+2022-06-18 19:45:24,122:INFO: Saving dataset to a single csv.
+2022-06-18 19:45:49,649:INFO: Dataset saved.
+2022-06-18 19:45:56,516:INFO: Downloading dataset [data/base/het2]...
+2022-06-18 19:46:15,894:INFO: Dataset downloaded. Features shape (225861, 39). Target shape (225861,).
+2022-06-18 19:46:15,895:INFO: Saving dataset to a single csv.
+2022-06-18 19:46:17,388:INFO: Dataset saved.
+2022-06-18 19:46:17,449:INFO: Downloading dataset [data/base/type_defs]...
+2022-06-18 19:46:19,208:INFO: Dataset downloaded. Features shape (96956, 24). Target shape (96956,).
+2022-06-18 19:46:19,208:INFO: Saving dataset to a single csv.
+2022-06-18 19:46:19,514:INFO: Dataset saved.
+2022-06-18 19:46:19,523:INFO: Downloading dataset [data/base/het5]...
