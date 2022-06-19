@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--data-dir', type=str, required=True)
 parser.add_argument('--out-dir', type=str, required=True)
 parser.add_argument('--from-k', type=int, default=2)
-parser.add_argument('--to-k', type=int, default=10)
+parser.add_argument('--to-k', type=int, default=15)
 parser.add_argument('--plot-timings', action='store_true')
 parser.add_argument('--metric', type=str, default='distortion',
                     help='distortion, silhouette, calinski_harabasz')

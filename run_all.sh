@@ -82,15 +82,29 @@
 
 
 
-python visualize_data.py --data-dir data/base/programs --model-dir experiments/visualizations/programs --database-name patternmining;
+# python visualize_data.py --data-dir data/base/programs --model-dir
+# experiments/visualizations/programs --database-name patternmining;
 # python visualize_data.py --data-dir data/base/type_defs --model-dir experiments/visualizations/type_defs --database-name patternmining;
-python visualize_data.py --data-dir data/base/field_defs --model-dir experiments/visualizations/field_defs --database-name patternmining;
+# python visualize_data.py --data-dir data/base/field_defs --model-dir experiments/visualizations/field_defs --database-name patternmining;
 # python visualize_data.py --data-dir data/base/method_defs --model-dir experiments/visualizations/method_defs --database-name patternmining;
-python visualize_data.py --data-dir data/base/types --model-dir experiments/visualizations/types --database-name patternmining;
+# python visualize_data.py --data-dir data/base/types --model-dir experiments/visualizations/types --database-name patternmining;
 # python visualize_data.py --data-dir data/base/expressions --model-dir experiments/visualizations/expressions --database-name patternmining;
-python visualize_data.py --data-dir data/base/statements --model-dir experiments/visualizations/statements --database-name patternmining;
+# python visualize_data.py --data-dir data/base/statements --model-dir experiments/visualizations/statements --database-name patternmining;
 # python visualize_data.py --data-dir data/base/het1 --model-dir experiments/visualizations/het1 --database-name patternmining;
-python visualize_data.py --data-dir data/base/het2 --model-dir experiments/visualizations/het2 --database-name patternmining;
+# python visualize_data.py --data-dir data/base/het2 --model-dir experiments/visualizations/het2 --database-name patternmining;
 # python visualize_data.py --data-dir data/base/het3 --model-dir experiments/visualizations/het3 --database-name patternmining;
-python visualize_data.py --data-dir data/base/het4 --model-dir experiments/visualizations/het4 --database-name patternmining;
+# python visualize_data.py --data-dir data/base/het4 --model-dir experiments/visualizations/het4 --database-name patternmining;
 # python visualize_data.py --data-dir data/base/het5 --model-dir experiments/visualizations/het5 --database-name patternmining;
+
+python kmeans_generate_elbow_plot.py --data-dir data/base/programs --out-dir experiments/kmeans-elbow/programs --plot-timings
+python kmeans_generate_elbow_plot.py --data-dir data/base/type_defs --out-dir experiments/kmeans-elbow/type_defs --plot-timings
+python kmeans_generate_elbow_plot.py --data-dir data/base/field_defs --out-dir experiments/kmeans-elbow/field_defs --plot-timings
+python kmeans_generate_elbow_plot.py --data-dir data/base/method_defs --out-dir experiments/kmeans-elbow/method_defs --plot-timings
+python kmeans_generate_elbow_plot.py --data-dir data/base/types --out-dir experiments/kmeans-elbow/types --plot-timings
+python kmeans_generate_elbow_plot.py --data-dir data/base/statements --out-dir experiments/kmeans-elbow/statements --plot-timings
+python kmeans_generate_elbow_plot.py --data-dir data/base/expressions --out-dir experiments/kmeans-elbow/expressions --plot-timings
+python kmeans_generate_elbow_plot.py --data-dir data/base/het1 --out-dir experiments/kmeans-elbow/het1 --plot-timings
+python kmeans_generate_elbow_plot.py --data-dir data/base/het2 --out-dir experiments/kmeans-elbow/het2 --plot-timings
+python kmeans_generate_elbow_plot.py --data-dir data/base/het3 --out-dir experiments/kmeans-elbow/het3 --plot-timings
+python kmeans_generate_elbow_plot.py --data-dir data/base/het4 --out-dir experiments/kmeans-elbow/het4 --plot-timings
+python kmeans_generate_elbow_plot.py --data-dir data/base/het5 --out-dir experiments/kmeans-elbow/het5 --plot-timings
