@@ -15,8 +15,7 @@ parser.add_argument('--out-dir', type=str, required=True)
 parser.add_argument('--from-k', type=int, default=2)
 parser.add_argument('--to-k', type=int, default=15)
 parser.add_argument('--plot-timings', action='store_true')
-parser.add_argument('--metric', type=str, default='distortion',
-                    help='distortion, silhouette, calinski_harabasz')
+parser.add_argument('--metric', type=str, default='distortion')
 
 if __name__ == '__main__':
     # Load the data for the experiment

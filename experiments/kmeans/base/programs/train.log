@@ -1,0 +1,4 @@
+2022-06-19 19:53:13,914:INFO: Parameters file not found.
+2022-06-19 19:53:13,914:INFO: Dataset loaded. Shape: (4651, 7), (4651,).
+2022-06-19 19:53:13,915:INFO: OneHot applied. Shape after: (4651, 7), (4651,).
+2022-06-19 19:53:13,915:INFO: Option --compute-elbow present. Overriding params.json elbow.
