@@ -1,0 +1,12 @@
+2022-06-20 17:39:17,544:INFO: Model loaded.
+2022-06-20 17:39:17,545:INFO: Dataset loaded. Shape: (96956, 24), (96956,).
+2022-06-20 17:39:17,581:INFO: OneHot applied. Shape after: (96956, 31), (96956,).
+2022-06-20 17:39:17,702:INFO: Processing feature type_def__number_of_annotations.
+2022-06-20 17:39:17,711:INFO: Processing feature type_def__number_of_implements.
+2022-06-20 17:39:17,720:INFO: Processing feature type_def__number_of_methods.
+2022-06-20 17:39:17,731:INFO: Processing feature type_def__percentage_overloaded_methods.
+2022-06-20 17:39:17,742:INFO: Processing feature type_def__number_of_constructors.
+2022-06-20 17:39:17,752:INFO: Processing feature type_def__number_of_fields.
+2022-06-20 17:39:17,762:INFO: Processing feature type_def__number_of_nested_types.
+2022-06-20 17:39:17,771:INFO: Processing feature type_def__percentage_of_static_fields.
+2022-06-20 17:39:17,781:INFO: Processing feature type_def__percentage_of_static_methods.

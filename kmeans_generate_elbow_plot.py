@@ -37,9 +37,9 @@ if __name__ == '__main__':
 
     logging.info(f"Exploring KMeans space from k={args.from_k} to k={args.to_k}.")
 
-    model = KMeans()
+    model = KMeans(random_state=0)
     visualizer = KElbowVisualizer(
-        model, k=(args.from_k, args.to_k + 1), metric=args.metric, timings=args.plot_timings
+        model, k=(args.from_k, args.to_k), metric=args.metric, timings=args.plot_timings
     )
     visualizer.fit(x)
     visualizer.finalize()
