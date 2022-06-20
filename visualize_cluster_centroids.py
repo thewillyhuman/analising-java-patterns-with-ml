@@ -14,7 +14,9 @@ from models.utils import Dataset, set_logger
 parser = argparse.ArgumentParser()
 parser.add_argument('--data-dir', type=str, required=True)
 parser.add_argument('--model-dir', type=str, required=True)
+parser.add_argument('--out-dir', type=str, required=True)
 parser.add_argument('--features', nargs='+', required=True)
+parser.add_argument('--features-titles', nargs='+', required=True)
 parser.add_argument('--vertical-charts', type=int, required=True)
 parser.add_argument('--horizontal-charts', type=int, required=True)
 
@@ -24,6 +26,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     dataset = Dataset(data_dir=args.data_dir)
     model_path = os.path.join(args.model_dir, 'model.joblib')
+    out_path = os.path.join(args.out_dir, 'centroids_visualization.svg')
 
     # Set the logger
     set_logger(os.path.join(args.model_dir, 'visualize_cluster_centroids.log'))
@@ -45,7 +48,7 @@ if __name__ == '__main__':
     # x_scalled = scale_data_to_range_0_1(x.copy(), features, dataset.percentage_features)
     # logging.info(f"Scaler applied. Shape after: {x.shape}, {y.shape}.")
 
-    processable_features = list((feature for feature in features if feature in args.features))
+    processable_features = list((feature for feature in args.features if feature in features))
 
     assert len(processable_features) == args.vertical_charts * args.horizontal_charts
 
@@ -54,12 +57,12 @@ if __name__ == '__main__':
     x_labelled['cluster_id'] = prediction
 
     figure, axis = plt.subplots(args.vertical_charts, args.horizontal_charts)
-    figure.set_figwidth(9)
-    figure.set_figheight(9)
+    figure.set_figwidth(5*args.horizontal_charts)
+    figure.set_figheight(5*args.vertical_charts)
 
     figure_row = 0
     figure_col = 0
-    for feature in processable_features:
+    for feature, title in zip(processable_features, args.features_titles):
         logging.info(f"Processing feature {feature}.")
         means = []
         mins = []
@@ -77,13 +80,15 @@ if __name__ == '__main__':
         x_error = [mins, maxs]
         axis[figure_row, figure_col].errorbar(means, range(1, model.n_clusters + 1), xerr=x_error, fmt='o', color='k', capsize=2)
         axis[figure_row, figure_col].set_ylabel("Cluster Number")
-        axis[figure_row, figure_col].set_title(f"{feature}")
+        y_labels = [f"C{n}" for n in range(1, model.n_clusters + 1)]
+        axis[figure_row, figure_col].set_yticks(range(1, model.n_clusters + 1), labels=y_labels)
+        axis[figure_row, figure_col].set_title(f"{title}")
         axis[figure_row, figure_col].axvline(x=np.mean(means), color='orange', linestyle='--')
 
         figure_col = figure_col + 1
-        if figure_col == 3:
+        if figure_col == args.horizontal_charts:
             figure_row = figure_row + 1
             figure_col = 0
 
-    plt.show()
-    figure.show()
+    plt.subplots_adjust(wspace=0.3, hspace=0.3)
+    figure.savefig(out_path, dpi=1200, bbox_inches='tight')
