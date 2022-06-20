@@ -1,0 +1,830 @@
+/usr/local/bin/python3.7 "/Users/ortin/OneDrive - Universidad de Oviedo/Articulos/pre-articulos/guillermo/all-ripper.py"
+
+ ---------- Processing 'expressions_unique' file ---------- 
+
+loading data...
+
+Model type: IREP, High expertise: True...
+13 rules found.
+Accuracy with all the data: 0.4769.
+Accuracy de la clase mayoritaria 0.8000.
+
+
+Model type: IREP, High expertise: False...
+38 rules found.
+Accuracy with all the data: 0.8353.
+Accuracy de la clase mayoritaria 0.8000.
+
+
+Model type: RIPPER, High expertise: True...
+120 rules found.
+Accuracy with all the data: 0.8372.
+Accuracy de la clase mayoritaria 0.8000.
+
+
+Model type: RIPPER, High expertise: False...
+117 rules found.
+Accuracy with all the data: 0.4133.
+Accuracy de la clase mayoritaria 0.8000.
+
+
+ ---------- Processing 'field_defs_unique' file ---------- 
+
+loading data...
+
+Model type: IREP, High expertise: True...
+6 rules found.
+Accuracy with all the data: 0.6524.
+Accuracy de la clase mayoritaria 0.7890.
+
+Rule: field_def__naming_convention_Camel_Low=1.0^field_def__syntatic_category_Double=0.0
+Support: 33.56%
+Confidence: 96.64% (high), 3.36% (low)
+
+Rule: field_def__naming_convention_Snake_Case=1.0
+Support: 8.63%
+Confidence: 92.17% (high), 7.83% (low)
+
+
+Model type: IREP, High expertise: False...
+6 rules found.
+Accuracy with all the data: 0.8371.
+Accuracy de la clase mayoritaria 0.7890.
+
+
+Model type: RIPPER, High expertise: True...
+11 rules found.
+Accuracy with all the data: 0.8656.
+Accuracy de la clase mayoritaria 0.7890.
+
+
+Model type: RIPPER, High expertise: False...
+16 rules found.
+Accuracy with all the data: 0.6659.
+Accuracy de la clase mayoritaria 0.7890.
+
+Rule: field_def__is_final=1.0^field_def__visibility_Public=0.0^field_def__is_static=0.0
+Support: 12.09%
+Confidence: 98.14% (high), 1.86% (low)
+
+Rule: field_def__initial_value_None=0.0^field_def__syntatic_category_String=1.0
+Support: 8.63%
+Confidence: 93.91% (high), 6.09% (low)
+
+Rule: field_def__syntatic_category_Long=1.0
+Support: 7.06%
+Confidence: 97.87% (high), 2.13% (low)
+
+Rule: field_def__number_of_annotations=1.0
+Support: 11.04%
+Confidence: 97.28% (high), 2.72% (low)
+
+Rule: field_def__syntatic_category_Reference=1.0^field_def__naming_convention_Lower=0.0^field_def__naming_convention_Upper=0.0
+Support: 12.61%
+Confidence: 98.21% (high), 1.79% (low)
+
+Rule: field_def__is_final=1.0^field_def__initial_value_None=1.0
+Support: 9.98%
+Confidence: 99.25% (high), 0.75% (low)
+
+
+ ---------- Processing 'method_defs_unique' file ---------- 
+
+loading data...
+
+Model type: IREP, High expertise: True...
+23 rules found.
+Accuracy with all the data: 0.5339.
+Accuracy de la clase mayoritaria 0.7935.
+
+Rule: method_def__type_of_first_parameter_Reference=1.0
+Support: 31.75%
+Confidence: 91.11% (high), 8.89% (low)
+
+Rule: method_def__number_of_statements=<1.0
+Support: 20.79%
+Confidence: 91.71% (high), 8.29% (low)
+
+Rule: method_def__is_static=1.0
+Support: 15.45%
+Confidence: 95.99% (high), 4.01% (low)
+
+Rule: method_def__naming_convention_of_local_vars_Snake_Case=1.0^method_def__type_of_first_parameter_Int=0.0
+Support: 16.80%
+Confidence: 90.34% (high), 9.66% (low)
+
+Rule: method_def__type_of_first_parameter_Int=0.0^method_def__return_type_Reference=1.0
+Support: 15.64%
+Confidence: 91.01% (high), 8.99% (low)
+
+
+Model type: IREP, High expertise: False...
+26 rules found.
+Accuracy with all the data: 0.8088.
+Accuracy de la clase mayoritaria 0.7935.
+
+
+Model type: RIPPER, High expertise: True...
+160 rules found.
+Accuracy with all the data: 0.8123.
+Accuracy de la clase mayoritaria 0.7935.
+
+
+Model type: RIPPER, High expertise: False...
+89 rules found.
+Accuracy with all the data: 0.4369.
+Accuracy de la clase mayoritaria 0.7935.
+
+Rule: method_def__number_of_throws=1.0^method_def__type_of_first_parameter_String=0.0
+Support: 12.49%
+Confidence: 93.89% (high), 6.11% (low)
+
+
+ ---------- Processing 'programs_unique' file ---------- 
+
+loading data...
+
+Model type: IREP, High expertise: True...
+6 rules found.
+Accuracy with all the data: 0.7311.
+Accuracy de la clase mayoritaria 0.5607.
+
+Rule: program__percentage_of_interfaces=0.6-1.27
+Support: 9.84%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: program__percentage_of_interfaces=0.34-0.6
+Support: 9.84%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: program__percentage_of_interfaces=1.27-2.33
+Support: 10.16%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: program__percentage_of_enums=0.44-2.16
+Support: 9.84%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: program__percentage_of_enums=2.16-3.46
+Support: 9.84%
+Confidence: 93.33% (high), 6.67% (low)
+
+
+Model type: IREP, High expertise: False...
+4 rules found.
+Accuracy with all the data: 0.5377.
+Accuracy de la clase mayoritaria 0.5607.
+
+
+Model type: RIPPER, High expertise: True...
+8 rules found.
+Accuracy with all the data: 0.5410.
+Accuracy de la clase mayoritaria 0.5607.
+
+Rule: program__percentage_of_enums=<0.44^program__percentage_of_interfaces=>19.77
+Support: 9.84%
+Confidence: 0.00% (high), 100.00% (low)
+
+Rule: program__percentage_of_interfaces=12.26-19.77
+Support: 9.84%
+Confidence: 6.67% (high), 93.33% (low)
+
+
+Model type: RIPPER, High expertise: False...
+7 rules found.
+Accuracy with all the data: 0.7377.
+Accuracy de la clase mayoritaria 0.5607.
+
+Rule: program__percentage_of_interfaces=0.34-0.6
+Support: 9.84%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: program__percentage_of_interfaces=1.27-2.33
+Support: 10.16%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: program__percentage_of_interfaces=0.6-1.27
+Support: 9.84%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: program__percentage_of_enums=0.44-2.16
+Support: 9.84%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: program__percentage_of_enums=2.16-3.46
+Support: 9.84%
+Confidence: 93.33% (high), 6.67% (low)
+
+
+ ---------- Processing 'statements_unique' file ---------- 
+
+loading data...
+
+Model type: IREP, High expertise: True...
+7 rules found.
+Accuracy with all the data: 0.5312.
+Accuracy de la clase mayoritaria 0.8042.
+
+
+Model type: IREP, High expertise: False...
+43 rules found.
+Accuracy with all the data: 0.8246.
+Accuracy de la clase mayoritaria 0.8042.
+
+
+Model type: RIPPER, High expertise: True...
+44 rules found.
+Accuracy with all the data: 0.8197.
+Accuracy de la clase mayoritaria 0.8042.
+
+
+Model type: RIPPER, High expertise: False...
+71 rules found.
+Accuracy with all the data: 0.3752.
+Accuracy de la clase mayoritaria 0.8042.
+
+
+ ---------- Processing 'type_defs_unique' file ---------- 
+
+loading data...
+
+Model type: IREP, High expertise: True...
+8 rules found.
+Accuracy with all the data: 0.6769.
+Accuracy de la clase mayoritaria 0.7119.
+
+Rule: type_def__percentage_of_static_fields=<20.0^type_def__visibility=0.0
+Support: 12.01%
+Confidence: 95.46% (high), 4.54% (low)
+
+Rule: type_def__number_of_constructors=<1.0^type_def__percentage_of_static_methods=>33.33
+Support: 10.13%
+Confidence: 93.85% (high), 6.15% (low)
+
+Rule: type_def__number_of_constructors=<1.0^type_def__percentage_of_static_methods=4.35-33.33
+Support: 9.48%
+Confidence: 92.79% (high), 7.21% (low)
+
+Rule: type_def__syntactic_category_Class=0.0
+Support: 5.96%
+Confidence: 93.04% (high), 6.96% (low)
+
+Rule: type_def__number_of_implements=2.0
+Support: 6.24%
+Confidence: 97.41% (high), 2.59% (low)
+
+
+Model type: IREP, High expertise: False...
+12 rules found.
+Accuracy with all the data: 0.7663.
+Accuracy de la clase mayoritaria 0.7119.
+
+
+Model type: RIPPER, High expertise: True...
+38 rules found.
+Accuracy with all the data: 0.7765.
+Accuracy de la clase mayoritaria 0.7119.
+
+
+Model type: RIPPER, High expertise: False...
+46 rules found.
+Accuracy with all the data: 0.6677.
+Accuracy de la clase mayoritaria 0.7119.
+
+Rule: type_def__is_in_default_package=0.0^type_def__number_of_annotations=1.0^type_def__number_of_generics=0.0
+Support: 18.59%
+Confidence: 99.38% (high), 0.62% (low)
+
+Rule: type_def__is_in_default_package=0.0^type_def__number_of_annotations=2.0
+Support: 5.52%
+Confidence: 99.72% (high), 0.28% (low)
+
+Rule: type_def__is_in_default_package=0.0^type_def__number_of_constructors=<1.0^type_def__is_final=1.0
+Support: 5.90%
+Confidence: 99.87% (high), 0.13% (low)
+
+Rule: type_def__is_in_default_package=0.0^type_def__number_of_fields=>14.0
+Support: 6.99%
+Confidence: 98.46% (high), 1.54% (low)
+
+Rule: type_def__is_in_default_package=0.0^type_def__is_abstract=0.0^type_def__number_of_methods=>31.0
+Support: 9.69%
+Confidence: 99.76% (high), 0.24% (low)
+
+Rule: type_def__is_in_default_package=0.0^type_def__is_abstract=0.0^type_def__number_of_nested_types=>2.0
+Support: 11.97%
+Confidence: 98.07% (high), 1.93% (low)
+
+
+ ---------- Processing 'types_unique' file ---------- 
+
+loading data...
+
+Model type: IREP, High expertise: True...
+6 rules found.
+Accuracy with all the data: 0.5972.
+Accuracy de la clase mayoritaria 0.9574.
+
+Rule: type__syntactic_category_Char=0.0
+Support: 96.47%
+Confidence: 96.83% (high), 3.17% (low)
+
+Rule: type__role_played_in_parent_node_CastType=1.0
+Support: 24.30%
+Confidence: 97.53% (high), 2.47% (low)
+
+Rule: type__height=6.0-7.0
+Support: 14.05%
+Confidence: 98.10% (high), 1.90% (low)
+
+Rule: type__height=4.0-5.0^type__role_played_in_parent_node_VariableType=0.0^type__is_primitive=0.0
+Support: 10.79%
+Confidence: 96.30% (high), 3.70% (low)
+
+Rule: type__height=7.0-9.0
+Support: 22.30%
+Confidence: 98.81% (high), 1.19% (low)
+
+
+Model type: IREP, High expertise: False...
+1 rules found.
+Accuracy with all the data: 0.9627.
+Accuracy de la clase mayoritaria 0.9574.
+
+
+Model type: RIPPER, High expertise: True...
+3 rules found.
+Accuracy with all the data: 0.9660.
+Accuracy de la clase mayoritaria 0.9574.
+
+
+Model type: RIPPER, High expertise: False...
+7 rules found.
+Accuracy with all the data: 0.5459.
+Accuracy de la clase mayoritaria 0.9574.
+
+Rule: type__syntactic_category_Reference=1.0^type__number_of_dimensions=0.0^type__syntactic_category_parent_node_NewClassStatement=0.0
+Support: 37.08%
+Confidence: 99.46% (high), 0.54% (low)
+
+Rule: type__syntactic_category_String=1.0
+Support: 9.39%
+Confidence: 98.58% (high), 1.42% (low)
+
+Rule: type__syntactic_category_Char=0.0^type__height=4.0-5.0^type__syntactic_category_Int=0.0
+Support: 16.05%
+Confidence: 98.34% (high), 1.66% (low)
+
+Rule: type__role_played_in_parent_node_CastType=1.0^type__syntactic_category_parent_node_CastExpression=0.0
+Support: 7.72%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: type__height=6.0-7.0
+Support: 14.05%
+Confidence: 98.10% (high), 1.90% (low)
+
+
+ ---------- Processing 'het1_unique' file ---------- 
+
+loading data...
+
+Model type: IREP, High expertise: True...
+14 rules found.
+Accuracy with all the data: 0.7354.
+Accuracy de la clase mayoritaria 0.6309.
+
+Rule: type_def__number_of_annotations=1.0
+Support: 25.58%
+Confidence: 99.11% (high), 0.89% (low)
+
+Rule: programs__percentage_of_enums=1.45-2.08
+Support: 21.55%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_enums=0.35-1.45
+Support: 12.00%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: type_def__number_of_annotations=2.0
+Support: 8.45%
+Confidence: 95.54% (high), 4.46% (low)
+
+Rule: programs__percentage_of_enums=2.08-3.68
+Support: 10.05%
+Confidence: 95.94% (high), 4.06% (low)
+
+Rule: programs__percentage_of_interfaces=0.64-1.98
+Support: 10.16%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_interfaces=0.35-0.64
+Support: 10.00%
+Confidence: 100.00% (high), 0.00% (low)
+
+
+Model type: IREP, High expertise: False...
+15 rules found.
+Accuracy with all the data: 0.7676.
+Accuracy de la clase mayoritaria 0.6309.
+
+Rule: programs__percentage_of_enums=<0.35^type_def__number_of_annotations=0.0
+Support: 24.82%
+Confidence: 1.20% (high), 98.80% (low)
+
+Rule: programs__percentage_of_enums=>7.16^type_def__number_of_annotations=0.0
+Support: 6.38%
+Confidence: 3.50% (high), 96.50% (low)
+
+
+Model type: RIPPER, High expertise: True...
+51 rules found.
+Accuracy with all the data: 0.7795.
+Accuracy de la clase mayoritaria 0.6309.
+
+Rule: programs__percentage_of_enums=<0.35^type_def__number_of_annotations=0.0^programs__percentage_of_interfaces=<0.35
+Support: 9.98%
+Confidence: 0.00% (high), 100.00% (low)
+
+
+Model type: RIPPER, High expertise: False...
+47 rules found.
+Accuracy with all the data: 0.7470.
+Accuracy de la clase mayoritaria 0.6309.
+
+Rule: type_def__number_of_annotations=1.0^type_def__number_of_generics=0.0^type_def__number_of_implements=2.0
+Support: 8.94%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_enums=1.45-2.08
+Support: 21.55%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: type_def__number_of_annotations=1.0^type_def__number_of_generics=0.0^type_def__number_of_implements=3.0
+Support: 5.89%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_enums=0.35-1.45
+Support: 12.00%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: type_def__number_of_annotations=2.0^type_def__percentage_of_static_fields=>61.9
+Support: 5.25%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_interfaces=0.64-1.98
+Support: 10.16%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_interfaces=0.35-0.64
+Support: 10.00%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: type_def__number_of_annotations=1.0^type_def__is_extension=1.0
+Support: 9.76%
+Confidence: 99.56% (high), 0.44% (low)
+
+Rule: programs__percentage_of_interfaces=1.98-3.85^programs__contains_code_in_default_package=1.0
+Support: 6.83%
+Confidence: 100.00% (high), 0.00% (low)
+
+
+ ---------- Processing 'het2_unique' file ---------- 
+
+loading data...
+
+Model type: IREP, High expertise: True...
+18 rules found.
+Accuracy with all the data: 0.6098.
+Accuracy de la clase mayoritaria 0.6082.
+
+Rule: programs__percentage_of_enums=1.45-2.47
+Support: 27.05%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: type_def__number_of_annotations=1.0
+Support: 23.42%
+Confidence: 99.38% (high), 0.62% (low)
+
+Rule: programs__percentage_of_interfaces=0.65-3.44
+Support: 16.10%
+Confidence: 99.65% (high), 0.35% (low)
+
+Rule: type_def__number_of_annotations=2.0
+Support: 7.65%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_interfaces=0.33-0.65
+Support: 9.79%
+Confidence: 100.00% (high), 0.00% (low)
+
+
+Model type: IREP, High expertise: False...
+14 rules found.
+Accuracy with all the data: 0.7122.
+Accuracy de la clase mayoritaria 0.6082.
+
+Rule: programs__percentage_of_enums=<1.11^programs__percentage_of_interfaces=<0.33
+Support: 21.26%
+Confidence: 0.02% (high), 99.98% (low)
+
+Rule: programs__percentage_of_interfaces=>8.83^programs__contains_code_in_default_package=0.0
+Support: 7.91%
+Confidence: 2.10% (high), 97.90% (low)
+
+Rule: type_def__number_of_annotations=0.0^programs__contains_code_in_default_package=0.0^field_def__is_final=0.0
+Support: 21.39%
+Confidence: 9.55% (high), 90.45% (low)
+
+Rule: type_def__number_of_annotations=0.0^programs__contains_code_in_default_package=0.0^programs__percentage_of_enums=<1.11
+Support: 13.27%
+Confidence: 1.02% (high), 98.98% (low)
+
+Rule: field_def__naming_convention_Camel_Low=0.0^type_def__number_of_annotations=0.0^programs__percentage_of_interfaces=<0.33
+Support: 19.88%
+Confidence: 0.08% (high), 99.92% (low)
+
+
+Model type: RIPPER, High expertise: True...
+96 rules found.
+Accuracy with all the data: 0.7196.
+Accuracy de la clase mayoritaria 0.6082.
+
+Rule: programs__percentage_of_interfaces=<0.33^type_def__number_of_annotations=0.0^programs__percentage_of_enums=<1.11
+Support: 21.24%
+Confidence: 0.00% (high), 100.00% (low)
+
+Rule: programs__percentage_of_interfaces=>8.83^programs__contains_code_in_default_package=0.0^programs__percentage_of_classes=<84.62
+Support: 5.14%
+Confidence: 0.00% (high), 100.00% (low)
+
+
+Model type: RIPPER, High expertise: False...
+71 rules found.
+Accuracy with all the data: 0.6139.
+Accuracy de la clase mayoritaria 0.6082.
+
+Rule: programs__percentage_of_enums=1.45-2.47
+Support: 27.05%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: type_def__number_of_annotations=1.0^type_def__number_of_implements=2.0
+Support: 10.64%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_interfaces=0.65-3.44^programs__percentage_of_classes=95.86-96.43
+Support: 8.49%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: type_def__number_of_annotations=1.0^type_def__number_of_implements=3.0
+Support: 7.13%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: type_def__number_of_annotations=2.0
+Support: 7.65%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__contains_code_in_packages=1.0^type_def__number_of_annotations=1.0^programs__percentage_of_interfaces=0.33-0.65
+Support: 7.78%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__contains_code_in_packages=1.0^programs__percentage_of_interfaces=0.65-3.44^programs__contains_code_in_default_package=1.0
+Support: 7.46%
+Confidence: 100.00% (high), 0.00% (low)
+
+
+ ---------- Processing 'het3_unique' file ---------- 
+
+loading data...
+
+Model type: IREP, High expertise: True...
+31 rules found.
+Accuracy with all the data: 0.4858.
+Accuracy de la clase mayoritaria 0.6044.
+
+Rule: type_def__number_of_annotations=1.0
+Support: 30.09%
+Confidence: 99.50% (high), 0.50% (low)
+
+Rule: programs__percentage_of_enums=1.45-3.33
+Support: 29.48%
+Confidence: 99.85% (high), 0.15% (low)
+
+Rule: programs__percentage_of_interfaces=0.65-3.44
+Support: 15.73%
+Confidence: 99.55% (high), 0.45% (low)
+
+Rule: type_def__is_nested=1.0
+Support: 6.41%
+Confidence: 97.26% (high), 2.74% (low)
+
+Rule: type_def__number_of_methods=>39.0
+Support: 10.29%
+Confidence: 99.49% (high), 0.51% (low)
+
+Rule: programs__percentage_of_interfaces=0.36-0.65
+Support: 10.13%
+Confidence: 100.00% (high), 0.00% (low)
+
+
+Model type: IREP, High expertise: False...
+13 rules found.
+Accuracy with all the data: 0.6225.
+Accuracy de la clase mayoritaria 0.6044.
+
+Rule: programs__percentage_of_enums=<1.39^programs__percentage_of_interfaces=<0.36
+Support: 18.33%
+Confidence: 0.02% (high), 99.98% (low)
+
+Rule: programs__percentage_of_interfaces=>11.11^programs__contains_code_in_default_package=0.0
+Support: 8.06%
+Confidence: 0.73% (high), 99.27% (low)
+
+Rule: type_def__number_of_implements=0.0^programs__percentage_of_interfaces=<0.36^programs__contains_code_in_default_package=1.0
+Support: 12.63%
+Confidence: 0.00% (high), 100.00% (low)
+
+
+Model type: RIPPER, High expertise: True...
+69 rules found.
+Accuracy with all the data: 0.6298.
+Accuracy de la clase mayoritaria 0.6044.
+
+Rule: programs__percentage_of_enums=<1.39^programs__percentage_of_interfaces=<0.36
+Support: 18.33%
+Confidence: 0.02% (high), 99.98% (low)
+
+Rule: type_def__number_of_annotations=0.0^programs__contains_code_in_default_package=0.0^programs__percentage_of_interfaces=<0.36
+Support: 10.04%
+Confidence: 0.50% (high), 99.50% (low)
+
+
+Model type: RIPPER, High expertise: False...
+71 rules found.
+Accuracy with all the data: 0.4850.
+Accuracy de la clase mayoritaria 0.6044.
+
+Rule: type_def__number_of_annotations=1.0^type_def__number_of_implements=2.0
+Support: 13.31%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_enums=1.45-3.33
+Support: 29.48%
+Confidence: 99.85% (high), 0.15% (low)
+
+Rule: type_def__number_of_annotations=1.0^type_def__number_of_implements=3.0
+Support: 9.58%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_interfaces=0.65-3.44^programs__contains_code_in_default_package=1.0
+Support: 5.91%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: type_def__number_of_annotations=1.0^programs__percentage_of_interfaces=0.65-3.44
+Support: 8.28%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: type_def__number_of_annotations=1.0^programs__percentage_of_interfaces=0.36-0.65
+Support: 9.22%
+Confidence: 100.00% (high), 0.00% (low)
+
+
+ 
+ ---------- Processing 'het4_unique' file ---------- 
+
+loading data...
+
+Model type: IREP, High expertise: True...
+54 rules found.
+Accuracy with all the data: 0.7038.
+Accuracy de la clase mayoritaria 0.6103.
+
+Rule: type_def__number_of_annotations=1.0
+Support: 26.32%
+Confidence: 99.33% (high), 0.67% (low)
+
+Rule: programs__percentage_of_enums=1.45-1.94
+Support: 23.49%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_enums=0.35-1.45
+Support: 14.59%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_enums=1.94-4.17^method_def__return_type_syntactic_category_Reference=1.0
+Support: 5.15%
+Confidence: 99.20% (high), 0.80% (low)
+
+Rule: programs__percentage_of_interfaces=0.74-3.44^programs__contains_code_in_default_package=1.0
+Support: 10.15%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_interfaces=0.35-0.74
+Support: 10.10%
+Confidence: 100.00% (high), 0.00% (low)
+
+
+Model type: IREP, High expertise: False...
+63 rules found.
+Accuracy with all the data: 0.7797.
+Accuracy de la clase mayoritaria 0.6103.
+
+Rule: programs__percentage_of_enums=<0.35^type_def__number_of_annotations=0.0
+Support: 30.83%
+Confidence: 0.58% (high), 99.42% (low)
+
+Rule: programs__contains_code_in_default_package=0.0^type_def__number_of_annotations=0.0^programs__percentage_of_classes=<84.01
+Support: 6.13%
+Confidence: 0.48% (high), 99.52% (low)
+
+Rule: programs__percentage_of_enums=<0.35^type_def__number_of_implements=0.0^type_def__percentage_of_static_methods=<3.85
+Support: 25.00%
+Confidence: 0.32% (high), 99.68% (low)
+
+
+Model type: RIPPER, High expertise: True...
+
+Accuracy with all the data: 0.4556.
+Accuracy de la clase mayoritaria 0.6035.
+
+Rule: type_def_number_of_annotations=1.0^method_defreturn_type_parent_node_syntactic_category_MethodDefinition=1.0^type_def_number_of_implements=2.0
+Support: 8.69%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs_percentage_of_classes=91.89-94.62^programs_percentage_of_enums=1.45-1.81
+Support: 21.96%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs_percentage_of_interfaces=0.63-3.44^programs_percentage_of_enums=0.35-1.45
+Support: 10.76%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: type_def_number_of_annotations=1.0^method_defreturn_type_parent_node_syntactic_category_MethodDefinition=1.0^type_def_number_of_implements=3.0
+Support: 5.92%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_enums=0.35-1.45
+Support: 13.97%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs_contains_code_in_default_package_False=1.0^programs_percentage_of_interfaces=0.29-0.63
+Support: 9.93%
+Confidence: 100.00% (high), 0.00% (low)
+
+Model type: RIPPER, High expertise: False...
+
+Accuracy with all the data: 0.4556.
+Accuracy de la clase mayoritaria 0.6035.
+
+Rule: programs__percentage_of_interfaces=>8.83^programs__contains_code_in_default_package_False=1.0^programs__percentage_of_classes=<85.71
+Support: 5.64%
+Confidence: 0.00% (high), 100.00% (low)
+
+
+
+
+ ---------- Processing 'het5_unique' file ---------- 
+
+loading data...
+
+Model type: RIPPER, High expertise: True...
+338 rules found.
+Accuracy with all the data: 0.4556.
+Accuracy de la clase mayoritaria 0.6035.
+
+Rule: type_def__number_of_annotations=1.0^method_def__return_type_parent_node_syntactic_category_MethodDefinition=1.0^type_def__number_of_implements=2.0
+Support: 8.69%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_classes=91.89-94.62^programs__percentage_of_enums=1.45-1.81
+Support: 21.96%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_interfaces=0.63-3.44^programs__percentage_of_enums=0.35-1.45
+Support: 10.76%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: type_def__number_of_annotations=1.0^method_def__return_type_parent_node_syntactic_category_MethodDefinition=1.0^type_def__number_of_implements=3.0
+Support: 5.92%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__percentage_of_enums=0.35-1.45
+Support: 13.97%
+Confidence: 100.00% (high), 0.00% (low)
+
+Rule: programs__contains_code_in_default_package_False=1.0^programs__percentage_of_interfaces=0.29-0.63
+Support: 9.93%
+Confidence: 100.00% (high), 0.00% (low)
+
+
+Model type: RIPPER, High expertise: False...
+432 rules found.
+Accuracy with all the data: 0.6337.
+Accuracy de la clase mayoritaria 0.6035.
+
+Rule: programs__percentage_of_interfaces=>8.83^programs__contains_code_in_default_package_False=1.0^programs__percentage_of_classes=<85.71
+Support: 5.64%
+Confidence: 0.00% (high), 100.00% (low)
+
+Rule: type_def__number_of_implements=0.0^programs__percentage_of_interfaces=<0.29^programs__contains_code_in_default_package_True=1.0
+Support: 16.87%
+Confidence: 0.00% (high), 100.00% (low)
