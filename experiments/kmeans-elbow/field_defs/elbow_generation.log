@@ -1,0 +1,11 @@
+2022-06-19 08:50:08,186:INFO: Dataset loaded. Shape: (239998, 10), (239998,).
+2022-06-19 08:50:08,370:INFO: OneHot applied. Shape after: (239998, 63), (239998,).
+2022-06-19 08:50:08,370:INFO: Exploring KMeans space from k=2 to k=15.
+2022-06-19 08:51:50,033:WARNING: findfont: Font family ['sans-serif'] not found. Falling back to DejaVu Sans.
+2022-06-19 08:51:50,033:WARNING: findfont: Generic family 'sans-serif' not found because none of the following families were found: Arial, Liberation Sans, Bitstream Vera Sans, sans-serif
+2022-06-19 08:51:50,043:WARNING: findfont: Font family ['sans-serif'] not found. Falling back to DejaVu Sans.
+2022-06-19 08:51:50,043:WARNING: findfont: Generic family 'sans-serif' not found because none of the following families were found: Arial, Liberation Sans, Bitstream Vera Sans, sans-serif
+2022-06-19 08:51:50,053:WARNING: findfont: Font family ['sans-serif'] not found. Falling back to DejaVu Sans.
+2022-06-19 08:51:50,053:WARNING: findfont: Generic family 'sans-serif' not found because none of the following families were found: Arial, Liberation Sans, Bitstream Vera Sans, sans-serif
+2022-06-19 08:51:50,079:WARNING: findfont: Font family ['sans-serif'] not found. Falling back to DejaVu Sans.
+2022-06-19 08:51:50,079:WARNING: findfont: Generic family 'sans-serif' not found because none of the following families were found: Arial, Liberation Sans, Bitstream Vera Sans, sans-serif
