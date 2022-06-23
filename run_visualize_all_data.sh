@@ -1,0 +1,12 @@
+python visualize_data.py --data-dir data/base/programs --model-dir experiments/visualizations/programs --database-name patternmining
+python visualize_data.py --data-dir data/base/type_defs --model-dir experiments/visualizations/programs --database-name patternmining
+python visualize_data.py --data-dir data/base/field_defs --model-dir experiments/visualizations/programs --database-name patternmining
+python visualize_data.py --data-dir data/base/method_defs --model-dir experiments/visualizations/programs --database-name patternmining
+python visualize_data.py --data-dir data/base/types --model-dir experiments/visualizations/programs --database-name patternmining
+python visualize_data.py --data-dir data/base/statements --model-dir experiments/visualizations/programs --database-name patternmining
+python visualize_data.py --data-dir data/base/expressions --model-dir experiments/visualizations/programs --database-name patternmining
+python visualize_data.py --data-dir data/base/programs --model-dir experiments/visualizations/programs --database-name patternmining
+python visualize_data.py --data-dir data/base/programs --model-dir experiments/visualizations/programs --database-name patternmining
+python visualize_data.py --data-dir data/base/programs --model-dir experiments/visualizations/programs --database-name patternmining
+python visualize_data.py --data-dir data/base/programs --model-dir experiments/visualizations/programs --database-name patternmining
+python visualize_data.py --data-dir data/base/programs --model-dir experiments/visualizations/programs --database-name patternmining

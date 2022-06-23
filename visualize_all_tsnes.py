@@ -66,15 +66,15 @@ if __name__ == '__main__':
                 figure_col = 0
                 figure_row = figure_row + 1
             # dataset = Dataset(data_dir=data_dir)
-            dataset = Dataset(data_dir=data_dir)
+            dataset = Dataset(data_dir=DATASETS_PATHS[0])
 
             # Load the dataset
             x, y = dataset.x, dataset.y
             logging.info(f"Dataset loaded. Shape: {x.shape}, {y.shape}.")
 
-            if len(x) > 50000:
+            if len(x) > 10:
                 logging.info(f"Sampling data to 50.000 instances before ploting")
-                x = x.sample(n=50000, random_state=0)
+                x = x.sample(n=10, random_state=0)
                 y = y[x.index]
 
             # OneHot encoding
