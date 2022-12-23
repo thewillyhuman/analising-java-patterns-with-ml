@@ -10,10 +10,10 @@ from models.utils import set_logger
 parser = argparse.ArgumentParser()
 parser.add_argument('--data-dir', type=str, required=True, help="Base data directory.")
 
-DATABASE_IP = '156.35.94.139'
-DATABASE_PORT = '5432'
-DATABASE_USERNAME = 'postgres'
-DATABASE_PASSWORD = 'postgres'
+DATABASE_IP = ''
+DATABASE_PORT = ''
+DATABASE_USERNAME = ''
+DATABASE_PASSWORD = ''
 
 
 def load_dataset_from_csv(data_dir: str) -> (pd.DataFrame, pd.Series, [str], str):
